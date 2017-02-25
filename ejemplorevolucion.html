@@ -9,7 +9,7 @@
     </style>
   </head>
   <body>
-  
+  <script>
   src="Humberth14.github.io/three.min.js">
   var puntos = [];
 for ( var i = 0; i < 50; i ++ ) {
@@ -34,5 +34,6 @@ var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize( window.innerHeight*.95, window.innerHeight*.95 );
 document.body.appendChild( renderizador.domElement );
 renderizador.render( escena, camara );
+    </script>
   </body>
 </html>
