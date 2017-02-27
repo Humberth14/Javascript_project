@@ -1,4 +1,4 @@
-var troncoForma = new THREE.DodecahedronGeometry(1,0);
+var troncoForma = new THREE.DodecahedronGeometry(0.5,0);
 var esferaForma = new THREE.SphereGeometry(.65);
 esferaForma.translate(0,1,0);
 
