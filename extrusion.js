@@ -4,6 +4,7 @@ figura.moveTo(10, 10);
 figura.lineTo(10, 40);
 figura.lineTo(40, 40);
 figura.lineTo(40, 10);
+figura.moveTo(10, 10);
 var forma = new THREE.ExtrudeGeometry( figura,
                                        {amount: 10} );
                                        
