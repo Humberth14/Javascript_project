@@ -1,10 +1,10 @@
 var figura = new THREE.Shape();
 
-figura.moveTo(100, 1000);
-figura.lineTo(100, 4000);
-figura.lineTo(400, 4000);
-figura.lineTo(400, 1000);
-figura.moveTo(100, 1000);
+figura.moveTo(100, 100);
+figura.lineTo(100, 400);
+figura.lineTo(400, 400);
+figura.lineTo(400, 100);
+figura.moveTo(100, 100);
 var forma = new THREE.ExtrudeGeometry( figura,
                                        {amount: 10} );
                                        
