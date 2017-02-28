@@ -7,8 +7,8 @@ for ( var i = 0; i < 100; i ++ ) {
 var forma = new THREE.LatheGeometry(puntos);
 
 var material = new THREE.MeshLambertMaterial(); 
-
-var malla = new THREE.Mesh( forma, material);
+var color = new THREE.Color( 'skyblue' )
+var malla = new THREE.Mesh( forma, material, color);
 malla.rotateX( Math.PI/6 );
 var escena = new THREE.Scene();
 escena.add(malla);
