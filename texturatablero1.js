@@ -9,17 +9,14 @@ malla = new THREE.Mesh(forma, material);
 escena = new THREE.Scene();
 escena.add(malla);
 
-camara = new THREE.PerspectiveCamera();
-camara.position.z = 5;
+  var camara = new THREE.PerspectiveCamera();
+camara.position.z = 40;
 
-renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerHeight*.95, window.innerHeight*.95);
-document.body.appendChild(renderer.domElement);
+var renderizador = new THREE.WebGLRenderer();
+renderizador.setSize( window.innerHeight*.95,
+                      window.innerHeight*.95 );
+document.body.appendChild( renderizador.domElement );
+renderizador.render( escena, camara );
 }
 
-function loop() {
-renderer.render(escena, camara);
-}
-var camara, escena, renderer, malla;
 setup()
-loop();
