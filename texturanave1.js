@@ -1,6 +1,9 @@
-
+function setup (){
+ THREE.ImageUtils.crossOrigin = '';
+  
+  var textura =THREE.ImageUtils.loadTexture('Humberth14.github.io/nave1.jpg');
+  var material = new THREE.MeshBasicMaterial({map: textura});
 var figura = new THREE.Shape();
-
 figura.moveTo(10, 10);
 figura.lineTo(10, 13.5);
 figura.lineTo(13.5, 17);
@@ -12,19 +15,29 @@ figura.moveTo(10,10);
 var forma = new THREE.ExtrudeGeometry( figura,
                                        {amount: 0.11} );
 
-THREE.ImageUtils.crossOrigin = '';
-var textura =THREE.ImageUtils.loadTexture('Humberth14.github.io/espacio.jpg');
-var material = new THREE.MeshBasicMaterial({map: textura});
-var malla = new THREE.Mesh( forma, material );
 
-var escena = new THREE.Scene();
+
+
+malla = new THREE.Mesh( forma, material );
+
+escena = new THREE.Scene();
 escena.add(malla);
 
-var camara = new THREE.PerspectiveCamera();
+camara = new THREE.PerspectiveCamera();
 camara.position.z = 100;
 
-var renderizador = new THREE.WebGLRenderer();
-renderizador.setSize( window.innerHeight*.95,
-                      window.innerHeight*.95 );
-document.body.appendChild( renderizador.domElement );
-renderizador.render( escena, camara );
+renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerHeight*.95, window.innerHeight*.95);
+document.body.appendChild(renderer.domElement);
+}
+function loop() {
+requestAnimationFrame(loop);
+
+malla.rotation.x += 0;
+malla.rotation.y += 0;
+
+renderer.render(escena, camara);
+}
+var camara, escena, renderer, malla;
+setup()
+loop();
