@@ -4,7 +4,7 @@ function setup (){
   var textura =THREE.ImageUtils.loadTexture('Humberth14.github.io/espacio.jpg');
   var material = new THREE.MeshBasicMaterial({map: textura});
 var figura = new THREE.Shape();
-figura.moveTo(10, 10);
+figura.moveTo(10+5, 10+5);
 figura.lineTo(10, 13.5);
 figura.lineTo(13.5, 17);
 figura.lineTo(17, 13.5);
