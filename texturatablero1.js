@@ -10,7 +10,7 @@ escena = new THREE.Scene();
 escena.add(malla);
 
 camara = new THREE.PerspectiveCamera();
-camara.position.z = 200;
+camara.position.z = 125;
 
 renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerHeight*.95, window.innerHeight*.95);
