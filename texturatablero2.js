@@ -2,7 +2,7 @@ function setup (){
 THREE.ImageUtils.crossOrigin = '';
 var textura =THREE.ImageUtils.loadTexture('Humberth14.github.io/espacio2.jpg');
 var material = new THREE.MeshBasicMaterial({map: textura});
-var forma = new THREE.BoxGeometry(80,80,10);
+var forma = new THREE.BoxGeometry(85,85,10);
 malla = new THREE.Mesh(forma, material);
 
 
