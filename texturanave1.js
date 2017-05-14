@@ -5,12 +5,12 @@ function setup (){
   var material = new THREE.MeshBasicMaterial({map: textura});
 var figura = new THREE.Shape();
 figura.moveTo(10+5, 10+5);
-figura.lineTo(10, 13.5);
-figura.lineTo(13.5, 17);
-figura.lineTo(17, 13.5);
-figura.lineTo(17, 10);
-figura.lineTo(13.5,14.5)
-figura.moveTo(10,10);
+figura.lineTo(10+5, 13.5+5);
+figura.lineTo(13.5+5, 17+5);
+figura.lineTo(17+5, 13.5+5);
+figura.lineTo(17+5, 10+5);
+figura.lineTo(13.5+5,14.5+5)
+figura.moveTo(10+5,10+5);
 
 var forma = new THREE.ExtrudeGeometry( figura,
                                        {amount: 0.11} );
