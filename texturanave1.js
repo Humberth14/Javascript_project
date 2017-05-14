@@ -1,7 +1,7 @@
 function setup (){
  THREE.ImageUtils.crossOrigin = '';
   
-  var textura =THREE.ImageUtils.loadTexture('Humberth14.github.io/navec.jpg');
+  var textura =THREE.ImageUtils.loadTexture('Humberth14.github.io/fut.jpg');
   var material = new THREE.MeshBasicMaterial({map: textura});
 var figura = new THREE.Shape();
 figura.moveTo(10+5, 10+5);
