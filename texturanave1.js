@@ -13,7 +13,7 @@ var forma = new THREE.ExtrudeGeometry( figura,
                                        {amount: 0.11} );
 
 THREE.ImageUtils.crossOrigin = '';
-var textura =THREE.ImageUtils.loadTexture('Humberth14.github.io/nave1.jpg');
+var textura =THREE.ImageUtils.loadTexture('Humberth14.github.io/espacio.jpg');
 var material = new THREE.MeshBasicMaterial({map: textura});
 var malla = new THREE.Mesh( forma, material );
 
