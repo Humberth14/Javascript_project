@@ -1,28 +1,13 @@
 function setup (){
  THREE.ImageUtils.crossOrigin = '';
   
-  var textura =THREE.ImageUtils.loadTexture('Humberth14.github.io/br.jpg');
+  var textura =THREE.ImageUtils.loadTexture('Humberth14.github.io/tw.png');
   var material = new THREE.MeshBasicMaterial({map: textura});
-var figura = new THREE.Shape();
-figura.moveTo(10, 10);
-figura.lineTo(10, 7);
-figura.lineTo(14, 2);
-figura.lineTo(16, 2);
-figura.lineTo(20, 7);
-figura.lineTo(20,10);
-figura.lineTo(16,7);
-figura.lineTo(15,10);
-figura.lineTo(14,7);
-figura.moveTo(10,10);
-
-
-var forma = new THREE.ExtrudeGeometry( figura,
-                                       {amount: 0.11} );
+var geometry = new THREE.TorusKnotGeometry( 10, 3, 100, 16 );
 
 
 
-
-malla = new THREE.Mesh( forma, material );
+malla = new THREE.Mesh( geometry, material );
 
 escena = new THREE.Scene();
 escena.add(malla);
