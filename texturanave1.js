@@ -33,8 +33,8 @@ document.body.appendChild(renderer.domElement);
 function loop() {
 requestAnimationFrame(loop);
 
-malla.rotation.x += 0;
-malla.translation.y += 0.01;
+malla.rotation.x += 00000000000001;
+malla.translation.y += 0.00000001;
 
 renderer.render(escena, camara);
 }
