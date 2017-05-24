@@ -19,7 +19,7 @@ var forma = new THREE.ExtrudeGeometry( figura,
 
 
 malla = new THREE.Mesh( forma, material );
-malla.position.y=2;
+malla.position.x=10;
 escena = new THREE.Scene();
 escena.add(malla);
 
