@@ -19,7 +19,7 @@ var forma = new THREE.ExtrudeGeometry( figura,
 
 
 malla = new THREE.Mesh( forma, material );
-malla.position.x=10;
+
 escena = new THREE.Scene();
 escena.add(malla);
 
@@ -33,7 +33,7 @@ document.body.appendChild(renderer.domElement);
 function loop() {
 requestAnimationFrame(loop);
 
-malla.rotation.x += 0;
+malla.rotation.x += 0.01;
 malla.rotation.y += 0;
 
 renderer.render(escena, camara);
