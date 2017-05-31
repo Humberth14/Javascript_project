@@ -24,9 +24,10 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
 
 	//the last time the ship fired a shot
 	var lastShot = 0;
-
+Humberth14.github.io/asteroids.html
 	//the white line we use to draw the spaceship
-    var shipMaterial = new THREE.LineBasicMaterial( { color: 0xffffff} );
+	var textura =THREE.ImageUtils.loadTexture('Humberth14.github.io/fut.jpg');
+    var shipMaterial = new THREE.MeshBasicMaterial({map: textura});
     //holds vertices for drawing the spaceship
     var shipGeometry = new THREE.Geometry();
     //holds vertices for drawing the spaceship "exhaust"
