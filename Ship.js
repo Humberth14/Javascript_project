@@ -231,7 +231,7 @@ function SpaceShip(scene, time, viewportSize, scale, player){
     	return verts;
     }
 
-}
+
 
 function Bullet(shipLocation, shipRotation, scale, scene, time, viewportSize){
 
