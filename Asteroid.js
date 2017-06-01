@@ -1,4 +1,4 @@
-function Asteroid(scene, scale, difficulty, viewportSize, time, largeExplosionBuffer, mediumExplosionBuffer, smallExplosionBuffer){
+function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, largeExplosionBuffer, mediumExplosionBuffer, smallExplosionBuffer){
 
 	try{
 		//the white line we use to draw the asteroids
@@ -27,33 +27,33 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, largeExplosionBu
 		}
 
 		//set asteroid
-   //     function loadSounds(i){
+        function loadSounds(i){
 
-     //       var request = new XMLHttpRequest();
-       //     if(i == 0)request.open('GET', "Sounds/bangLarge.wav", true);
-         //   if(i == 1)request.open('GET', "Sounds/bangMedium.wav", true);
-           // if(i == 2)request.open('GET', "Sounds/bangSmall.wav", true);
-           // request.responseType = 'arraybuffer';
+            var request = new XMLHttpRequest();
+            if(i == 0)request.open('GET', "Sounds/bangLarge.wav", true);
+            if(i == 1)request.open('GET', "Sounds/bangMedium.wav", true);
+            if(i == 2)request.open('GET', "Sounds/bangSmall.wav", true);
+            request.responseType = 'arraybuffer';
 
             // Decode asynchronously
-           // request.onload = function() {
-             //   audioContext.decodeAudioData(request.response, function(buffer) {
-               // if(i == 0){
-                 //   largeExplosionBuffer = buffer;
-                   // loadSounds(1);
-              //  }
-               // if(i == 1){
-            //        mediumExplosionBuffer = buffer;
-              //      loadSounds(2);
-              //  }
-              //  if(i == 2){
-                //    smallExplosionBuffer = buffer;
-               // }
-               // });
-           // }
-     //       request.send();
-       // }
-       // if(largeExplosionBuffer == null)loadSounds(0);
+            request.onload = function() {
+                audioContext.decodeAudioData(request.response, function(buffer) {
+                if(i == 0){
+                    largeExplosionBuffer = buffer;
+                    loadSounds(1);
+                }
+                if(i == 1){
+                    mediumExplosionBuffer = buffer;
+                    loadSounds(2);
+                }
+                if(i == 2){
+                    smallExplosionBuffer = buffer;
+                }
+                });
+            }
+            request.send();
+        }
+        if(largeExplosionBuffer == null)loadSounds(0);
 
 	    //possible asteroid geometry
 	    asteroid1Geometry.vertices.push(new THREE.Vector3(-3,-3,0));
