@@ -300,5 +300,4 @@ function Bullet(shipLocation, shipRotation, scale, scene, time, viewportSize){
     this.position = function(){
     	return bullet.position;
     }
- }
 }
