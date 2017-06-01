@@ -65,9 +65,9 @@
         background.position.set( 0, 0, 0 );
         scene.add( background );
 
-      //  init audio context
-      //  window.AudioContext = window.AudioContext || window.webkitAudioContext;
-      //  audioContext = new AudioContext();
+        //init audio context
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioContext = new AudioContext();
 
         //restart message
         var newgame = new newGame(scene);
@@ -76,20 +76,20 @@
         //set the number of lives player has
         for(var i = 1; i <= Lives; i ++){
             var lifePosition = new THREE.Vector3((viewportSize/-2) + (20 * i), (viewportSize /2) - 20, 750);
-            var lifeShip = new SpaceShip(scene, Date.now(), viewportSize, 4,  false);
+            var lifeShip = new SpaceShip(scene, Date.now(), viewportSize, 4, audioContext, false);
             lifeShip.setPosition(lifePosition);
             LivesLeft.push(lifeShip);
         }
 
         //init spaceship and asteroids
-        var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5,  true);
+        var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true);
         spaceShip.setInvincible();
         var Asteroids = [];
         var seedDate = Date.now();
         
         //setup asteroids
         for(var i = 0; i < 5; i ++){
-            var a = new Asteroid(scene,5,2,viewportSize,seedDate,  null, null, null);
+            var a = new Asteroid(scene,5,2,viewportSize,seedDate, audioContext, null, null, null);
             a.randomStart();
             Asteroids.push(a);
         }
@@ -140,7 +140,7 @@
 
                     var asteroids = []
                     for(var i = 0; i < 5; i ++){
-                        var a = new Asteroid(scene,5,2,viewportSize,time - 1,  null, null, null);
+                        var a = new Asteroid(scene,5,2,viewportSize,time - 1, audioContext, null, null, null);
                         a.randomStart();
                         Asteroids.push(a);
                     }
