@@ -76,20 +76,20 @@
         //set the number of lives player has
         for(var i = 1; i <= Lives; i ++){
             var lifePosition = new THREE.Vector3((viewportSize/-2) + (20 * i), (viewportSize /2) - 20, 750);
-            var lifeShip = new SpaceShip(scene, Date.now(), viewportSize, 4, audioContext, false);
+            var lifeShip = new SpaceShip(scene, Date.now(), viewportSize, 4,  false);
             lifeShip.setPosition(lifePosition);
             LivesLeft.push(lifeShip);
         }
 
         //init spaceship and asteroids
-        var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true);
+        var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5,  true);
         spaceShip.setInvincible();
         var Asteroids = [];
         var seedDate = Date.now();
         
         //setup asteroids
         for(var i = 0; i < 5; i ++){
-            var a = new Asteroid(scene,5,2,viewportSize,seedDate, audioContext, null, null, null);
+            var a = new Asteroid(scene,5,2,viewportSize,seedDate,  null, null, null);
             a.randomStart();
             Asteroids.push(a);
         }
