@@ -51,7 +51,7 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, largeExplosionBu
                // }
                // });
            // }
-            request.send();
+     //       request.send();
        // }
        // if(largeExplosionBuffer == null)loadSounds(0);
 
