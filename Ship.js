@@ -1,4 +1,4 @@
-function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
+function SpaceShip(scene, time, viewportSize, scale, player){
 	"use strict";
 
 
@@ -60,28 +60,28 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
     scene.add(shipExhaust);
 
     //set up sounds
-    var shotBuffer = null;
-    var thrustBuffer = null;
-    function loadSounds(i){
+ //   var shotBuffer = null;
+   // var thrustBuffer = null;
+    //function loadSounds(i){
 
-        var request = new XMLHttpRequest();
-        if(i == 0)request.open('GET', "Sounds/fire.wav", true);
-        if(i == 1)request.open('GET', "Sounds/thrust.wav", true);
-        request.responseType = 'arraybuffer';
+      //  var request = new XMLHttpRequest();
+       // if(i == 0)request.open('GET', "Sounds/fire.wav", true);
+       // if(i == 1)request.open('GET', "Sounds/thrust.wav", true);
+       // request.responseType = 'arraybuffer';
 
         // Decode asynchronously
-        request.onload = function() {
-            audioContext.decodeAudioData(request.response, function(buffer) {
-            if(i == 0)shotBuffer = buffer;
-            if(i == 1)thrustBuffer = buffer;
-            });
-        }
-        request.send();
-    }
-    if(player){
-        loadSounds(0);
-        loadSounds(1);
-    }
+       // request.onload = function() {
+         //   audioContext.decodeAudioData(request.response, function(buffer) {
+          //  if(i == 0)shotBuffer = buffer;
+          //  if(i == 1)thrustBuffer = buffer;
+    //        });
+      //  }
+       // request.send();
+   // }
+   // if(player){
+     //   loadSounds(0);
+       // loadSounds(1);
+   // }
 
     this.setPosition = function(v){
     	spaceShip.position.set(v.x,v.y,v.z);
@@ -146,12 +146,12 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
         //}
         
         //thrust sound
-        if(lastTime - lastThrustTime > 250){
-            lastThrustTime = lastTime;
-            var thrustSource = audioContext.createBufferSource();
-            thrustSource.buffer = thrustBuffer;
-            thrustSource.connect(audioContext.destination);
-            thrustSource.start(0);
+   //     if(lastTime - lastThrustTime > 250){
+ //           lastThrustTime = lastTime;
+ //           var thrustSource = audioContext.createBufferSource();
+ //           thrustSource.buffer = thrustBuffer;
+//            thrustSource.connect(audioContext.destination);
+ //           thrustSource.start(0);
         }
 
         //make sure ship doesn't go too fast
@@ -171,9 +171,9 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
     	var shotdelay = held ? 350 : 100;
 
         //sounds
-        var shotSource = audioContext.createBufferSource();
-        shotSource.buffer = shotBuffer;
-        shotSource.connect(audioContext.destination);
+     //   var shotSource = audioContext.createBufferSource();
+    //    shotSource.buffer = shotBuffer;
+     //   shotSource.connect(audioContext.destination);
 
     	//check to see if enough time has elapsed since the last shot
     	if(lastTime - lastShot > shotdelay){
