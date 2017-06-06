@@ -30,9 +30,9 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, la
         function loadSounds(i){
 
             var request = new XMLHttpRequest();
-            if(i == 0)request.open('GET', "Sounds/bangLarge.wav", true);
-            if(i == 1)request.open('GET', "Sounds/bangMedium.wav", true);
-            if(i == 2)request.open('GET', "Sounds/bangSmall.wav", true);
+            if(i == 0)request.open('GET', "Sounds/Ahhh!.wav", true);
+            if(i == 1)request.open('GET', "Sounds/Ahhh!.wav", true);
+            if(i == 2)request.open('GET', "Sounds/Ahhh!.wav", true);
             request.responseType = 'arraybuffer';
 
             // Decode asynchronously
