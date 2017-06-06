@@ -65,7 +65,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
     function loadSounds(i){
 
         var request = new XMLHttpRequest();
-        if(i == 0)request.open('GET', "Sounds/fire.wav", true);
+        if(i == 0)request.open('GET', "Sounds/Cuack.mp3", true);
         if(i == 1)request.open('GET', "Sounds/thrust.wav", true);
         request.responseType = 'arraybuffer';
 
