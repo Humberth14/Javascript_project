@@ -66,7 +66,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
 
         var request = new XMLHttpRequest();
         if(i == 0)request.open('GET', "Sounds/Cuack.mp3", true);
-        if(i == 1)request.open('GET', "Sounds/thrust.wav", true);
+        if(i == 1)request.open('GET', "Sounds/Pedo.wav", true);
         request.responseType = 'arraybuffer';
 
         // Decode asynchronously
