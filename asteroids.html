@@ -118,6 +118,26 @@
             scene.add(star);
             stars.push(star);
         }
+        
+        // init score
+        var score = new THREE.FontLoader();
+        score.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+            var geometry = new THREE.TextGeometry( 'Hello three.js!', {
+                font: font,
+                size: 80,
+                height: 5,
+                curveSegments: 12,
+                bevelEnabled: true,
+                bevelThickness: 10,
+                bevelSize: 8,
+                bevelSegments: 5
+            } );
+        } );
+        score.position.z=750;
+        score.position.x=100;
+        score.position.y=100;
+        scene.add(score);
+        
         //init audio context
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
         audioContext = new AudioContext();
