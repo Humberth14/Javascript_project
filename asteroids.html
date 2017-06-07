@@ -120,19 +120,10 @@
         }
         
         // init score
-        var score = new THREE.FontLoader();
-        score.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
-            var geometry = new THREE.TextGeometry( 'Hello three.js!', {
-                font: font,
-                size: 80,
-                height: 5,
-                curveSegments: 12,
-                bevelEnabled: true,
-                bevelThickness: 10,
-                bevelSize: 8,
-                bevelSegments: 5
-            } );
-        } );
+        var score = canvas.getContext("2d");
+        score.font = "30px Comic Sans MS";
+        score.fillStyle = "red";
+        score.filltext("hello");
         score.position.z=750;
         score.position.x=100;
         score.position.y=100;
