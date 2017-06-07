@@ -134,7 +134,7 @@
           steps: 1
         };
 
-        var text1 = createMesh(new THREE.TextGeometry("Learning", options));
+        var text1 = new THREE.Mesh(new THREE.TextGeometry("Learning", options));
         text1.position.z = 750;
         text1.position.y = 100;
         scene.add(text1);
