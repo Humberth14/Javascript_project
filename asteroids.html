@@ -98,9 +98,19 @@
             scene.add(star);
             stars.push(star);
         }
-        // yellow stars
+        // magenta stars
         for(var i=0; i<=20;i++){
             starMaterial= new THREE.MeshBasicMaterial({color: 0xff08ff});
+            star=new THREE.Mesh(new THREE.SphereGeometry( 3, 15, 15 ),starMaterial);
+            star.position.x=(Math.random()-0.5)*1000;
+            star.position.y=(Math.random()-0.5)*1000;
+            star.position.z=50;
+            scene.add(star);
+            stars.push(star);
+        }
+        // yellow stars
+        for(var i=0; i<=20;i++){
+            starMaterial= new THREE.MeshBasicMaterial({color: 0xffff08});
             star=new THREE.Mesh(new THREE.SphereGeometry( 3, 15, 15 ),starMaterial);
             star.position.x=(Math.random()-0.5)*1000;
             star.position.y=(Math.random()-0.5)*1000;
