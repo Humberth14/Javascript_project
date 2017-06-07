@@ -126,7 +126,7 @@
         text.style.position = 'absolute';
         text.style.zIndex = 1; 
         text.style.color="white";
-        text.style.width = 50;
+        text.style.width = 75;
         text.style.height =50;
         text.style.backgroundColor = "black";
         text.innerHTML = "SCORE: "+score.toString();
@@ -282,6 +282,10 @@
                                 //alert("bullet hit asteroid");
                                 destroy = true;
                                 score++;
+                                text.innerHTML = "SCORE: "+score.toString();
+                                text.style.top = 50 + 'px';
+                                text.style.left = 150 + 'px';
+                                document.body.appendChild(text);
 
                                 //remove the offending asteroid
                                 var childAsteroids = Asteroids[j].destroy(true);
