@@ -121,12 +121,13 @@
 
         //keep track of bullets that are still "live"
         var activeBullets = [];
-
+    var angleStar=0;
         //main render loop
         function render () {
                 
             try{
-                stars.rotation.z+=0.1;
+                stars.position.x+=Math.sin(angleStar)*20;
+                angleStar+=0.1;
 
 
 
