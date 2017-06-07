@@ -72,7 +72,7 @@
         for(var i=0; i<=20;i++){
             starMaterial= new THREE.MeshBasicMaterial({color: 0xffffff});
             star=new THREE.Mesh(new THREE.SphereGeometry( 3, 15, 15 ),starMaterial);
-            star.position.x=(Math.random()-0.5)*100;
+            star.position.x=(Math.random()-0.5)*1000;
             star.position.y=(Math.random()-0.5)*100;
             star.position.z=50;
             scene.add(star);
@@ -82,8 +82,8 @@
         for(var i=0; i<=20;i++){
             starMaterial= new THREE.MeshBasicMaterial({color: 0xff0808});
             star=new THREE.Mesh(new THREE.SphereGeometry( 3, 15, 15 ),starMaterial);
-            star.position.x=(Math.random()-0.5)*100;
-            star.position.y=(Math.random()-0.5)*100;
+            star.position.x=(Math.random()-0.5)*1000;
+            star.position.y=(Math.random()-0.5)*1000;
             star.position.z=50;
             scene.add(star);
             stars.push(star);
