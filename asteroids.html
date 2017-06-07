@@ -124,13 +124,14 @@
         
         var text = document.createElement('div');
         text.style.position = 'absolute';
-        text.style.zIndex = 1;  
-        text.style.width = 1000;
-        text.style.height = 1000;
+        text.style.zIndex = 1; 
+        text.style.color="white";
+        text.style.width = 100;
+        text.style.height = 100;
         text.style.backgroundColor = "black";
         text.innerHTML = "SCORE: "+score.toString();
-        text.style.top = 200 + 'px';
-        text.style.left = 200 + 'px';
+        text.style.top = 1000 + 'px';
+        text.style.left = 1000 + 'px';
         document.body.appendChild(text);
 
 
