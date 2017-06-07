@@ -120,15 +120,27 @@
         }
         
         // init score
-        var score = canvas.getContext("2d");
-        score.font = "30px Comic Sans MS";
-        score.fillStyle = "red";
-        score.filltext("hello");
-        score.position.z=750;
-        score.position.x=100;
-        score.position.y=100;
-        scene.add(score);
-        
+        var optionsText = {
+          size: 90,
+          height: 90,
+          weight: 'normal',
+          font: 'helvetiker',
+          style: 'normal',
+          bevelThickness: 2,
+          bevelSize: 4,
+          bevelSegments: 3,
+          bevelEnabled: true,
+          curveSegments: 12,
+          steps: 1
+        };
+
+        var text1 = createMesh(new THREE.TextGeometry("Learning", options));
+        text1.position.z = 750;
+        text1.position.y = 100;
+        scene.add(text1);
+
+
+
         //init audio context
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
         audioContext = new AudioContext();
