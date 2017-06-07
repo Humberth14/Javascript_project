@@ -66,7 +66,16 @@
         scene.add( background );
         
         //creation stars
-        
+        var star,starMaterial;
+        var stars=[];
+        for(var i=0; i<=20;i++){
+            starMaterial= new THREE.MeshBasicMaterial({color: 0xffffff});
+            star=new THREE.Mesh(THREE.SphereGeometry( 3, 15, 15 ),starMaterial);
+            star.position.x=Math.cos(i*5);
+            star.position.y=Math.sin(i*5);
+            scene.add(star);
+            stars.push(star);
+        }
         //init audio context
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
         audioContext = new AudioContext();
