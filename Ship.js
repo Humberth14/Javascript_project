@@ -26,16 +26,9 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
 	var lastShot = 0;
 
 	//the white line we use to draw the spaceship
-    var shipMaterial = new THREE.LineBasicMaterial( { color: 0xffffff} );
+    var shipMaterial = new THREE.LineBasicMaterial( { color: 0x0000ff} );
     //holds vertices for drawing the spaceship
-    //var shipGeometry = new THREE.Geometry();
-	var shipShape = new THREE.Shape();
-	shipShape.moveTo(2,-2);
-	shipShape.lineTo(0,3);
-	shipShape.lineTo(-2,-2);
-	shipShape.lineTo(-1,-1);
-	shipShape.lineTo(1,-1);
-	var shipGeometry=new THREE.ShapeBufferGeometry(shipShape);
+    var shipGeometry = new THREE.Geometry();
     //holds vertices for drawing the spaceship "exhaust"
     var exhaustGeometry = new THREE.Geometry();
 
@@ -55,8 +48,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
     //create the spaceship and exhaust
 	var spaceShipTexture =new THREE.ImageUtils.loadTexture( 'images/aste.jpg' );
 	
-    //var spaceShip = new THREE.Line(shipGeometry,shipMaterial,THREE.LineStrip);
-	var spaceShip = new THREE.Mesh(shipGeometry,new THREE.MeshBasicMaterial({map:spaceShipTexture}));
+    var spaceShip = new THREE.Line(shipGeometry,shipMaterial,THREE.LineStrip);
     var shipExhaust = new THREE.Line(exhaustGeometry, shipMaterial, THREE.LineStrip);
 
     //set position and scale of the spaceship / exhaust
@@ -229,17 +221,17 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
         }
     }
 
-    //this.getVertices = function(){
-    	//var verts = [];
-    	//for (var i = 0; i < spaceShip.geometry.vertices.length; i ++){
-    	//	var Vec = new THREE.Vector3();
-    	//	Vec.copy(spaceShip.geometry.vertices[i]);
-    	//	Vec.applyAxisAngle(new THREE.Vector3(0,0,1), spaceShip.rotation.z);
-    	//	Vec.add(spaceShip.position);
-    	//	verts.push(Vec);
-    	//}
-    	//return verts;
-    //}
+    this.getVertices = function(){
+    	var verts = [];
+    	for (var i = 0; i < spaceShip.geometry.vertices.length; i ++){
+    		var Vec = new THREE.Vector3();
+    		Vec.copy(spaceShip.geometry.vertices[i]);
+    		Vec.applyAxisAngle(new THREE.Vector3(0,0,1), spaceShip.rotation.z);
+    		Vec.add(spaceShip.position);
+    		verts.push(Vec);
+    	}
+    	return verts;
+    }
 
 }
 
