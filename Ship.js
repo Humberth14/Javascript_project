@@ -28,17 +28,24 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
 	//the white line we use to draw the spaceship
     var shipMaterial = new THREE.LineBasicMaterial( { color: 0xffffff} );
     //holds vertices for drawing the spaceship
-    var shipGeometry = new THREE.Geometry();
+    //var shipGeometry = new THREE.Geometry();
+	var shipShape = new THREE.Shape();
+	shipShape.moveTo(2,-2);
+	shipShape.lineTo(0,3);
+	shipShape.lineTo(-2,-2);
+	shipShape.lineTo(-1,-1);
+	shipShape.lineTo(1,-1);
+	var shipGeometry=new THREE.ShapeBufferGeometry(shipShape);
     //holds vertices for drawing the spaceship "exhaust"
     var exhaustGeometry = new THREE.Geometry();
 
     //create spaceship vertices
-    shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
-    shipGeometry.vertices.push(new THREE.Vector3(2,-3,0));
-    shipGeometry.vertices.push(new THREE.Vector3(1,-2,0));
-    shipGeometry.vertices.push(new THREE.Vector3(-1,-2,0));
-    shipGeometry.vertices.push(new THREE.Vector3(-2,-3,0));
-    shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+    //shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+    //shipGeometry.vertices.push(new THREE.Vector3(2,-3,0));
+    //shipGeometry.vertices.push(new THREE.Vector3(1,-2,0));
+    //shipGeometry.vertices.push(new THREE.Vector3(-1,-2,0));
+    //shipGeometry.vertices.push(new THREE.Vector3(-2,-3,0));
+    //shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
 
     //create exhaust vertices
     exhaustGeometry.vertices.push(new THREE.Vector3(1,-2,0));
@@ -47,7 +54,9 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
 
     //create the spaceship and exhaust
 	var spaceShipTexture =new THREE.ImageUtils.loadTexture( 'images/aste.jpg' );
-    var spaceShip = new THREE.Mesh(shipGeometry, new THREE.MeshLambertMaterial({map:spaceShipTexture}));
+	
+    //var spaceShip = new THREE.Line(shipGeometry,shipMaterial,THREE.LineStrip);
+	var spaceShip = new THREE.Mesh(shipGeometry,new THREE.MeshBasicMaterial({map:spaceShipTexture}));
     var shipExhaust = new THREE.Line(exhaustGeometry, shipMaterial, THREE.LineStrip);
 
     //set position and scale of the spaceship / exhaust
