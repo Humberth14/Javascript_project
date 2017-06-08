@@ -66,9 +66,17 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, la
 	    asteroid1Geometry.vertices.push(new THREE.Vector3(4,-1,0));
 	    asteroid1Geometry.vertices.push(new THREE.Vector3(2,-4,0));
 	    asteroid1Geometry.vertices.push(new THREE.Vector3(-3,-3,0));
-
+	    
+	    // init texture
+	    //var initTexture=new Object();
+		//initTexture.TextureSetup = function(){
+		//	var bufferTexture = new THREE.TextureLoader();
+		//	bufferTexture.load("images/aste.jpg",function (texture){initTexture.asteroide = texture;});
+		//}
+		var asteroidTexture = THREE.ImageUtils.loadTexture('images/aste.png'); 
+		var asteroidMaterial = new THREE.MeshLambertMaterial({map: asteroidTexture});
 	    //create the asteroid
-	    var mainAsteroid = new THREE.Line(asteroid1Geometry, asteroidMaterial, THREE.LineStrip);
+	    var mainAsteroid = new THREE.Line(asteroid1Geometry, new THREE.MeshLambertMaterial({map: asteroidTexture});, THREE.LineStrip);
 
 	    //the bullet hitbox of the asteroid
 	    var bulletHitboxVertices = [];
