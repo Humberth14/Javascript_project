@@ -33,12 +33,12 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
     var exhaustGeometry = new THREE.Geometry();
 
     //create spaceship vertices
-    //shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
-    //shipGeometry.vertices.push(new THREE.Vector3(2,-3,0));
-    //shipGeometry.vertices.push(new THREE.Vector3(1,-2,0));
-    //shipGeometry.vertices.push(new THREE.Vector3(-1,-2,0));
-    //shipGeometry.vertices.push(new THREE.Vector3(-2,-3,0));
-    //shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+    shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+    shipGeometry.vertices.push(new THREE.Vector3(2,-3,0));
+    shipGeometry.vertices.push(new THREE.Vector3(1,-2,0));
+    shipGeometry.vertices.push(new THREE.Vector3(-1,-2,0));
+    shipGeometry.vertices.push(new THREE.Vector3(-2,-3,0));
+    shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
 
     //create exhaust vertices
     exhaustGeometry.vertices.push(new THREE.Vector3(1,-2,0));
