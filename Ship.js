@@ -28,7 +28,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
 	//the white line we use to draw the spaceship
     var shipMaterial = new THREE.LineBasicMaterial( { color: 0x0000ff} );
     //holds vertices for drawing the spaceship
-    var shipGeometry = new THREE.Geometry();
+    var shipGeometry = new THREE.Shape();
     //holds vertices for drawing the spaceship "exhaust"
     var exhaustGeometry = new THREE.Geometry();
 
@@ -48,7 +48,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
     //create the spaceship and exhaust
 	var spaceShipTexture =new THREE.ImageUtils.loadTexture( 'images/aste.jpg' );
 	
-    var spaceShip = new THREE.Mesh((shipGeometry),shipMaterial);
+    var spaceShip = new THREE.Mesh(new THREE.ShapeBufferGeometry(shipGeometry),shipMaterial);
     var shipExhaust = new THREE.Line(exhaustGeometry, shipMaterial, THREE.LineStrip);
 
     //set position and scale of the spaceship / exhaust
