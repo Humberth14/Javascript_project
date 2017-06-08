@@ -168,6 +168,7 @@
         spaceShip.setInvincible();
         var Asteroids = [];
         var seedDate = Date.now();
+        var numberShip=0;
         
         //setup asteroids
         for(var i = 0; i < 10; i ++){
@@ -177,7 +178,6 @@
         }
 
         
-
         //keep track of bullets that are still "live"
         var activeBullets = [];
     var angleStar=0;
@@ -190,10 +190,17 @@
                     stars[i].position.y+=Math.cos(angleStar)*1;
                 }
                 angleStar+=0.01;
-                if(score>5 && score<10){
+                
+                if(score>5 && score<10 && numberShip==0){
                     spaceShip1.setPosition(new THREE.Vector3(0,0,1000));
                     spaceShip2.setPosition(new THREE.Vector3(0,0,750));
                     spaceShip=spaceShip2;
+                    numberShip++;
+                }else if(score>=10 && score<15 && numberShip==1){
+                    spaceShip2.setPosition(new THREE.Vector3(0,0,1000));
+                    spaceShip3.setPosition(new THREE.Vector3(0,0,750));
+                    spaceShip=spaceShip3;
+                    numberShip++;
                 }
 
 
