@@ -69,7 +69,7 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, la
 	    
 	    // init texture
 		var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste.jpg' );
-		var mainAsteroid = new THREE.Mesh(new THREE.SphereGeometry(5,4,4),new THREE.MeshLambertMaterial({map:asteroidTexture}));
+		var mainAsteroid = new THREE.Mesh(new THREE.SphereGeometry(10,4,4),new THREE.MeshLambertMaterial({map:asteroidTexture}));
 		
 	    //create the asteroid
 	    
