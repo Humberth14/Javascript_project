@@ -89,8 +89,11 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour
     	spaceShip.position.set(v.x,v.y,v.z);
     	shipExhaust.position.set(v.x,v.y,v.z);
     }
-    this.getPosition=function(){
-	    return new THREE.Vector3(this.position.x,this.position.y,this.position.z);
+    this.getX=function(){
+	    return this.position.x;
+    }
+    this.getY=function(){
+	    return this.position.y;
     }
     this.setRotation = function(v){
     	spaceShip.rotation.z = v.z;
