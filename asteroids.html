@@ -190,15 +190,7 @@
                     stars[i].position.y+=Math.cos(angleStar)*1;
                 }
                 angleStar+=0.01;
-                
-                if(score>5 && score<10 && numberShip==0){
-                    spaceShip.color(0x00ff00);
-                    numberShip++;
-                }else if(score>=10 && score<15 && numberShip==1){
-                    spaceShip2.setPosition(new THREE.Vector3(0,0,1000));
-                    spaceShip=spaceShip3;
-                    numberShip++;
-                }
+               
 
 
                 var time = Date.now();
