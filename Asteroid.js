@@ -8,7 +8,7 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, la
 	    //the direction the asteroid is flying
 	    var xDMod = Math.random() > .5 ? 1 : -1;
 	    var yDMod = Math.random() > .5 ? 1 : -1;
-	    var asteroidVector = new THREE.Vector3(Math.random() * difficulty * 75 * xDMod, Math.random() * difficulty * 75 * yDMod, 0);
+	    var asteroidVector = new THREE.Vector3(Math.random() * difficulty * 75 * xDMod, Math.random() * difficulty * 75 * yDMod, -5);
 
 	    this.position = new THREE.Vector3();
 	    this.Difficulty = difficulty;
@@ -73,7 +73,6 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, la
 		//	var bufferTexture = new THREE.TextureLoader();
 		//	bufferTexture.load("images/aste.jpg",function (texture){initTexture.asteroide = texture;});
 		//}
-		var texture= new Object();
 		var textureAsteroid= new THREE.MeshBasicMaterial();
 		var asteroidTexture = new THREE.TextureLoader();
 		asteroidTexture.load("images/aste.jpg",function(texture){
