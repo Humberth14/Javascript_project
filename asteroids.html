@@ -188,9 +188,9 @@
                 }
                 angleStar+=0.01;
                 if(score>5 && score<10){
-                    spaceShip1.setPosition(new THREE.Vector3(,,1000));
-                    spaceShip2.setPosition(new THREE.Vector3(,,750));
-                    spaceShip3.setPosition(new THREE.Vector3(,,1000));
+                    spaceShip1.setPosition(new THREE.Vector3(spaceShip.position.x,spaceShip.position.y,1000));
+                    spaceShip2.setPosition(new THREE.Vector3(spaceShip.position.x,spaceShip.position.y,750));
+                    spaceShip3.setPosition(new THREE.Vector3(spaceShip.position.x,spaceShip.position.y,1000));
                     spaceShip=spaceShip2;
                 }
 
