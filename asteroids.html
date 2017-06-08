@@ -15,6 +15,11 @@
 
     <body>
     <script src="three.min.js"></script>
+        <script>
+            var light=new THREE.PointLight(0xDDDDDD);
+            light.position.z=750;
+            light.castShadow=true;
+            
     <script src="Ship.js"></script>
     <script src="Asteroid.js"></script>
     <script src="Restart.js"></script>
@@ -37,7 +42,7 @@
 
         //initialize scene
         var scene = new THREE.Scene();
-        
+        scene.add(light);
         //selecting a renderer to use
         var renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
