@@ -192,7 +192,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
 
     	//show exhaust?
     	if(showExhaust) shipExhaust.position.z = 1;
-    	else shipExhaust.position.z = 0;
+    	else shipExhaust.position.z = 1000;
     	showExhaust = false;
 
     	var tempMomentum = new THREE.Vector3();
