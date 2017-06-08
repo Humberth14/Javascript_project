@@ -194,6 +194,7 @@
                 console.log(xp);
                 console.log("posShipX","posshipY",spaceShip.getY);
                 if(score>5 && score<10 && numberShip==0){
+                    spaceShip2.setPosition(new THREE.Vector3(0,0,750));
                     spaceShip2.setPosition(spaceShip.position);
                     spaceShip=spaceShip2;
                     numberShip++;
