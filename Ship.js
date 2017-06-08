@@ -90,10 +90,12 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour
     	shipExhaust.position.set(v.x,v.y,v.z);
     }
     this.getX=function(){
-	    return this.position.x;
+	    var x=this.position.x
+	    return x;
     }
     this.getY=function(){
-	    return this.position.y;
+	    var y=this.position.y;
+	    return y;
     }
     this.setRotation = function(v){
     	spaceShip.rotation.z = v.z;
