@@ -164,7 +164,7 @@
         
         spaceShip2.setPosition(new THREE.Vector3(0,0,1000));
         spaceShip3.setPosition(new THREE.Vector3(0,0,1000));
-        spaceShip=spaceShip1;
+        spaceShip=spaceShip3;
         spaceShip.setInvincible();
         var Asteroids = [];
         var seedDate = Date.now();
@@ -194,6 +194,7 @@
                 if(score>5 && score<10 && numberShip==0){
                     spaceShip2.setPosition(spaceShip1.position);
                     spaceShip1.setPosition(new THREE.Vector3(0,0,1000));
+                    spaceShip=spaceShip1;
                     numberShip++;
                 }else if(score>=10 && score<15 && numberShip==1){
                     spaceShip2.setPosition(new THREE.Vector3(0,0,1000));
