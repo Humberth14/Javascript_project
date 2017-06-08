@@ -157,7 +157,9 @@
         }
 
         //init spaceship and asteroids
-        var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0xff0000);
+        var spaceShip;
+        var spaceShip1 = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0xff0000);
+        spaceShip=spaceShip1;
         spaceShip.setInvincible();
         var Asteroids = [];
         var seedDate = Date.now();
