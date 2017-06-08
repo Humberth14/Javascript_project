@@ -192,6 +192,7 @@
                 angleStar+=0.01;
                 
                 if(score>5 && score<10 && numberShip==0){
+                    spaceShip2.setPosition(spaceShip1.position);
                     spaceShip1.setPosition(new THREE.Vector3(0,0,1000));
                     spaceShip=spaceShip2;
                     numberShip++;
