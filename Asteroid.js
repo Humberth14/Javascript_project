@@ -81,7 +81,7 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, la
 			//mainAsteroid = THREE.Line(asteroid1Geometry, new THREE.MeshBasicMaterial({map: asteroidTexture}), THREE.LineStrip);
 			 textures.asteroid=texture;
 		});
-		var mainAsteroid = new THREE.Mesh(new THREE.SphereGeometry(3,20,20),new THREE.MeshBasicMaterial({map:textures.asteroid}));
+		var mainAsteroid = new THREE.Mesh(new THREE.SphereGeometry(3,20,20),new THREE.MeshLambertMaterial({map:textures.asteroid}));
 		//var asteroidMaterial = new THREE.MeshLambertMaterial({map: asteroidTexture});
 	    //create the asteroid
 	    
