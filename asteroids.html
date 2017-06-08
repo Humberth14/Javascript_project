@@ -69,9 +69,9 @@
         var star,starMaterial;
         var stars=[];
         //white stars
-        for(var i=0; i<=20;i++){ //number of stars
+        for(var i=0; i<=50;i++){ //number of stars
             starMaterial= new THREE.MeshBasicMaterial({color: 0xffffff});
-            star=new THREE.Mesh(new THREE.SphereGeometry( 3, 15, 15 ),starMaterial); //size
+            star=new THREE.Mesh(new THREE.SphereGeometry( 1, 15, 15 ),starMaterial); //size
             star.position.x=(Math.random()-0.5)*1000;
             star.position.y=(Math.random()-0.5)*1000;
             star.position.z=50;
@@ -81,7 +81,7 @@
         // red stars
         for(var i=0; i<=20;i++){
             starMaterial= new THREE.MeshBasicMaterial({color: 0xff0808});
-            star=new THREE.Mesh(new THREE.SphereGeometry( 3, 15, 15 ),starMaterial);
+            star=new THREE.Mesh(new THREE.SphereGeometry( 1, 15, 15 ),starMaterial);
             star.position.x=(Math.random()-0.5)*1000;
             star.position.y=(Math.random()-0.5)*1000;
             star.position.z=50;
@@ -89,9 +89,9 @@
             stars.push(star);
         }
         // cyan stars
-        for(var i=0; i<=20;i++){
+        for(var i=0; i<=30;i++){
             starMaterial= new THREE.MeshBasicMaterial({color: 0x08ffff});
-            star=new THREE.Mesh(new THREE.SphereGeometry( 3, 15, 15 ),starMaterial);
+            star=new THREE.Mesh(new THREE.SphereGeometry( 1, 15, 15 ),starMaterial);
             star.position.x=(Math.random()-0.5)*1000;
             star.position.y=(Math.random()-0.5)*1000;
             star.position.z=50;
@@ -99,9 +99,9 @@
             stars.push(star);
         }
         // magenta stars
-        for(var i=0; i<=20;i++){
+        for(var i=0; i<=35;i++){
             starMaterial= new THREE.MeshBasicMaterial({color: 0xff08ff});
-            star=new THREE.Mesh(new THREE.SphereGeometry( 3, 15, 15 ),starMaterial);
+            star=new THREE.Mesh(new THREE.SphereGeometry( 1, 15, 15 ),starMaterial);
             star.position.x=(Math.random()-0.5)*1000;
             star.position.y=(Math.random()-0.5)*1000;
             star.position.z=50;
@@ -109,7 +109,7 @@
             stars.push(star);
         }
         // yellow stars
-        for(var i=0; i<=20;i++){
+        for(var i=0; i<=10;i++){
             starMaterial= new THREE.MeshBasicMaterial({color: 0xffff08});
             star=new THREE.Mesh(new THREE.SphereGeometry( 3, 15, 15 ),starMaterial);
             star.position.x=(Math.random()-0.5)*1000;
