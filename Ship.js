@@ -229,17 +229,17 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
         }
     }
 
-    this.getVertices = function(){
-    	var verts = [];
-    	for (var i = 0; i < spaceShip.geometry.vertices.length; i ++){
-    		var Vec = new THREE.Vector3();
-    		Vec.copy(spaceShip.geometry.vertices[i]);
-    		Vec.applyAxisAngle(new THREE.Vector3(0,0,1), spaceShip.rotation.z);
-    		Vec.add(spaceShip.position);
-    		verts.push(Vec);
-    	}
-    	return verts;
-    }
+    //this.getVertices = function(){
+    	//var verts = [];
+    	//for (var i = 0; i < spaceShip.geometry.vertices.length; i ++){
+    	//	var Vec = new THREE.Vector3();
+    	//	Vec.copy(spaceShip.geometry.vertices[i]);
+    	//	Vec.applyAxisAngle(new THREE.Vector3(0,0,1), spaceShip.rotation.z);
+    	//	Vec.add(spaceShip.position);
+    	//	verts.push(Vec);
+    	//}
+    	//return verts;
+    //}
 
 }
 
