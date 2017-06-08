@@ -1,4 +1,4 @@
-function SpaceShip(scene, time, viewportSize, scale, audioContext, player,score){
+function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
 	"use strict";
 
 
@@ -200,17 +200,6 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player,score)
     	else shipExhaust.position.z = 1000;
     	showExhaust = false;
 	
-	if(score<5){
-		spaceShip1.position.z=750;
-		spaceShip2.position.z=1000;
-		spaceShip3.position.z=1000;
-		spaceShip=spaceShip1;
-	}else if(score>5 && score<10){
-		spaceShip2.position.z=750;
-		spaceShip1.position.z=1000;
-		spaceShip3.position.z=1000;
-		spaceShip=spaceShip2;
-	}
     	var tempMomentum = new THREE.Vector3();
     	tempMomentum.copy(shipMomentum);
     	tempMomentum.multiplyScalar(50 * timeDelta);
