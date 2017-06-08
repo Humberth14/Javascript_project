@@ -240,6 +240,9 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour
     	}
     	return verts;
     }
+    this.positionShipX=function(){
+	    return spaceShip.position.x;
+    }
 
 }
 
