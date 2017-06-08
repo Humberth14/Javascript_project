@@ -73,10 +73,10 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, la
 		//	var bufferTexture = new THREE.TextureLoader();
 		//	bufferTexture.load("images/aste.jpg",function (texture){initTexture.asteroide = texture;});
 		//}
-		var mainAsteroid;
+		var mainAsteroid = new THREE.Line();
 		var asteroidTexture = new THREE.TextureLoader();
 		asteroidTexture.load("images/aste.jpg",function(texture){
-			mainAsteroid = new THREE.Line(asteroid1Geometry, new THREE.MeshLambertMaterial({map: asteroidTexture}), THREE.LineStrip);
+			mainAsteroid = THREE.Line(asteroid1Geometry, new THREE.MeshLambertMaterial({map: asteroidTexture}), THREE.LineStrip);
 		});
 		//var asteroidMaterial = new THREE.MeshLambertMaterial({map: asteroidTexture});
 	    //create the asteroid
