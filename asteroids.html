@@ -161,6 +161,9 @@
         var spaceShip1 = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0xff0000);
         var spaceShip2 = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0x00ff00);
         var spaceShip3 = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0x0000ff);
+        
+        spaceShip2.setPosition(new THREE.Vector3(0,0,1000));
+        spaceShip3.setPosition(new THREE.Vector3(0,0,1000));
         spaceShip=spaceShip1;
         spaceShip.setInvincible();
         var Asteroids = [];
@@ -188,9 +191,8 @@
                 }
                 angleStar+=0.01;
                 if(score>5 && score<10){
-                    spaceShip1.setPosition(new THREE.Vector3(spaceShip.position.x,spaceShip.position.y,1000));
-                    spaceShip2.setPosition(new THREE.Vector3(spaceShip.position.x,spaceShip.position.y,750));
-                    spaceShip3.setPosition(new THREE.Vector3(spaceShip.position.x,spaceShip.position.y,1000));
+                    spaceShip1.setPosition(new THREE.Vector3(0,0,1000));
+                    spaceShip2.setPosition(new THREE.Vector3(0,0,750));
                     spaceShip=spaceShip2;
                 }
 
