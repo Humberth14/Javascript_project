@@ -49,7 +49,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
 	var spaceShipTexture =new THREE.ImageUtils.loadTexture( 'images/aste.jpg' );
 	
     var spaceShip = new THREE.Line(shipGeometry,shipMaterial,THREE.LineStrip);
-    var shipExhaust = new THREE.Line(exhaustGeometry, new THREE.LineBasicMaterial( { color: 0x00ffff} ), THREE.LineStrip);
+    var shipExhaust = new THREE.Line(exhaustGeometry, new THREE.LineBasicMaterial( { color: 0xffff00} ), THREE.LineStrip);
 
     //set position and scale of the spaceship / exhaust
     spaceShip.position.set(0,0,750);
