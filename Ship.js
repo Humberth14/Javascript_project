@@ -48,7 +48,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player){
     //create the spaceship and exhaust
 	var spaceShipTexture =new THREE.ImageUtils.loadTexture( 'images/aste.jpg' );
 	
-    var spaceShip = new THREE.Mesh(new THREE.ShapeGeometry(shipGeometry),shipMaterial);
+    var spaceShip = new THREE.Mesh((shipGeometry),shipMaterial);
     var shipExhaust = new THREE.Line(exhaustGeometry, shipMaterial, THREE.LineStrip);
 
     //set position and scale of the spaceship / exhaust
