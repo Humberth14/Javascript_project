@@ -76,7 +76,7 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, la
 		var asteroidTexture = THREE.ImageUtils.loadTexture('images/aste.png'); 
 		var asteroidMaterial = new THREE.MeshLambertMaterial({map: asteroidTexture});
 	    //create the asteroid
-	    var mainAsteroid = new THREE.Line(asteroid1Geometry, new THREE.MeshLambertMaterial({map: asteroidTexture});, THREE.LineStrip);
+	    var mainAsteroid = new THREE.Line(asteroid1Geometry, new THREE.MeshLambertMaterial({map: asteroidTexture}), THREE.LineStrip);
 
 	    //the bullet hitbox of the asteroid
 	    var bulletHitboxVertices = [];
