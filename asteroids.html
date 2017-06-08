@@ -190,7 +190,8 @@
                     stars[i].position.y+=Math.cos(angleStar)*1;
                 }
                 angleStar+=0.01;
-                console.log("posShipX",spaceShip.getX,"posshipY",spaceShip.getY);
+                var xp=spaceShip.getX;
+                console.log("posShipX",xp,"posshipY",spaceShip.getY);
                 if(score>5 && score<10 && numberShip==0){
                     spaceShip2.setPosition(new THREE.Vector3(spaceShip.getX,spaceShip.getY,750));
                     spaceShip=spaceShip2;
