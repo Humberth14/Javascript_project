@@ -77,7 +77,7 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, la
 		var textureAsteroid= new THREE.MeshBasicMaterial();
 		var asteroidTexture = new THREE.TextureLoader();
 		asteroidTexture.load("images/aste.jpg",function(texture){
-			var texture.asteroid=texture;
+			//var texture.asteroid=texture;
 			textureAsteroid= new THREE.MeshBasicMaterial({map:texture});
 			//mainAsteroid = THREE.Line(asteroid1Geometry, new THREE.MeshBasicMaterial({map: asteroidTexture}), THREE.LineStrip);
 		});
