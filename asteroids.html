@@ -426,7 +426,7 @@
              return;
          }
          
-           delete men;
+           men.parentNode.removeChild(men);
             main();
      }
     
@@ -438,7 +438,7 @@
         men.style.width = 1000;
         men.style.height =1000;
         men.style.backgroundColor = "blue";
-        men.innerHTML = "Elija la nave a mover: <b /> 1) Azul  <b/> 2)Rojo";
+        men.innerHTML = "Elija la nave a mover: <br /> 1) Azul  <br/> 2)Rojo";
         men.style.top = 0 + 'px';
         men.style.left = 0 + 'px';
         document.body.appendChild(men);
