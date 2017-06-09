@@ -130,18 +130,8 @@
          //menu
         var shipSelected=0;
         
-            var men = document.createElement('div');
-            men.style.position = 'absolute';
-            men.style.zIndex = 1; 
-            men.style.color="white";
-            men.style.width = viewportSize;
-            men.style.height =viewportSize;
-            men.style.backgroundColor = "black";
-            men.innerHTML = "Elija la nave a mover \n 1) Azul \n 2)Rojo";
-            men.style.top = 0 + 'px';
-            men.style.left = 0 + 'px';
-            document.body.appendChild(men);
-            waitForShip(shipSelected,men);
+            
+            waitForShip(shipSelected);
         
         // init score
         var score=0;
@@ -421,7 +411,18 @@
     }
 
      // function for waiting the user to select
-     function waitForShip(shipSelected,men){
+     function waitForShip(shipSelected){
+         var men = document.createElement('div');
+            men.style.position = 'absolute';
+            men.style.zIndex = 1; 
+            men.style.color="white";
+            men.style.width = viewportSize;
+            men.style.height =viewportSize;
+            men.style.backgroundColor = "black";
+            men.innerHTML = "Elija la nave a mover \n 1) Azul \n 2)Rojo";
+            men.style.top = 0 + 'px';
+            men.style.left = 0 + 'px';
+            document.body.appendChild(men);
          if(shipSelected===0){
             setTimeout(waitForShip, 50);//wait 50 millisecnds then recheck
              return;
