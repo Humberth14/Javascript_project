@@ -130,8 +130,10 @@
          //menu
         var shipSelected=0;
         
-            
-            waitForShip(shipSelected,viewportSize);
+            while(shipSelected==0){
+                window.setTimeout(100);
+            }
+            //waitForShip(shipSelected,viewportSize);
         
         // init score
         var score=0;
