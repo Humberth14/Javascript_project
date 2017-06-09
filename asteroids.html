@@ -415,6 +415,14 @@
 
      // function for waiting the user to select
      function waitForShip(shipSelected,viewportSize){
+         function onDocumentKeyDown( event ) {
+
+            switch( event.keyCode ) {
+                case 97: // ship1
+                    shipSelected=1;
+                    break;
+                                  }
+         }
          var men = document.createElement('div');
             men.style.position = 'absolute';
             men.style.zIndex = 1; 
