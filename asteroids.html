@@ -242,7 +242,7 @@
                     spaceShip.setMomentum(new THREE.Vector3(0,0,0));
                     spaceShip.setInvincible();
                     invincible = true;
-
+                    score=0;
                     var asteroids = []
                     for(var i = 0; i < 5; i ++){
                         var a = new Asteroid(scene,5,2,viewportSize,time - 1, audioContext, null, null, null);
