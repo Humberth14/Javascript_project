@@ -434,13 +434,13 @@
         men = document.createElement('div');
         men.style.position = 'absolute';
         men.style.zIndex = 1; 
-        men.style.color="white";
+        men.style.color="black";
         men.style.width = 1000;
         men.style.height =1000;
-        men.style.backgroundColor = "blue";
-        men.innerHTML = "Elija la nave a mover: <br /> 1) Azul  <br/> 2)Rojo";
-        men.style.top = 0 + 'px';
-        men.style.left = 0 + 'px';
+        men.style.backgroundColor = "white";
+        men.innerHTML = "Elija la nave a mover: <br /> 1) Azul  <br/> 2)Rojo <br/> 3)Rosa <br/> 4)Magenta <br/> 5)Turquesa <br/> 6)Coral";
+        men.style.top = window.innerHeight/2 + 'px';
+        men.style.left = window.innerWidth/2 + 'px';
         document.body.appendChild(men);
         waitForShip();
     
