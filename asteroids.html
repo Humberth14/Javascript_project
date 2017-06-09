@@ -24,6 +24,8 @@
     <script src="Asteroid.js"></script>
     <script src="Restart.js"></script>
     <script>
+        
+        var shipSelected=0;
     function main(){
     try{
         //keypresses
@@ -360,6 +362,9 @@
                 case 89: // 'y'
                     Y_Down = true;
                     break;
+                case 97: // ship 1
+                    shipSelected=1;
+                    break;
             }
         }
 
@@ -398,6 +403,27 @@
     }
     }
 
+        
+        
+        function menu(){
+            var text = document.createElement('div');
+            text.style.position = 'absolute';
+            text.style.zIndex = 1; 
+            text.style.color="white";
+            text.style.width = viewportSize;
+            text.style.height =viewportSize;
+            text.style.backgroundColor = "black";
+            text.innerHTML = "Elija la nave a mover \n 1) Azul \n 2)Rojo";
+            text.style.top = 0 + 'px';
+            text.style.left = 0 + 'px';
+            document.body.appendChild(text);
+            while(shipSelected==0){
+            }
+            text.style.top = viewportSize*2 + 'px';
+            text.style.left = viewportSize*2 + 'px';
+        }
+            
+            
     main();
     
     
