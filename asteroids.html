@@ -128,7 +128,7 @@
         }
         
          //menu
-        var shipSelected=0;
+        var shipSelected==0;
         waitForShip(shipSelected,viewportSize);
         
         // init score
@@ -425,7 +425,7 @@
             men.style.left = 0 + 'px';
             document.body.appendChild(men);
          console.log("ship",shipSelected);
-         if(shipSelected===0){
+         if(shipSelected===0 || shipSelected===undefined){
             window.setTimeout(waitForShip, 100);//wait 100 millisecnds then recheck
              return;
          }
