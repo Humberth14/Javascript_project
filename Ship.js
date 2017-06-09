@@ -1,4 +1,4 @@
-function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour){
+function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour,shipSelected){
 	"use strict";
 
 
@@ -33,12 +33,26 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour
     var exhaustGeometry = new THREE.Geometry();
 
     //create spaceship vertices
-    shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
-    shipGeometry.vertices.push(new THREE.Vector3(2,-3,0));
-    shipGeometry.vertices.push(new THREE.Vector3(1,-2,0));
-    shipGeometry.vertices.push(new THREE.Vector3(-1,-2,0));
-    shipGeometry.vertices.push(new THREE.Vector3(-2,-3,0));
-    shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+	switch(shipSelected){
+		case 1:
+			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+			shipGeometry.vertices.push(new THREE.Vector3(2,-3,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-2,-3,0));
+			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+			break;
+		case 2:
+			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(2,-1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-2,-1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+			break;
+			   }
 	
     //create exhaust vertices
     exhaustGeometry.vertices.push(new THREE.Vector3(1,-2,0));
