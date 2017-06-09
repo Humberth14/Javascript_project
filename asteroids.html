@@ -141,10 +141,7 @@
             men.style.top = 0 + 'px';
             men.style.left = 0 + 'px';
             document.body.appendChild(men);
-            while(waitForShip(shipSelected)===0){
-            }
-            men.style.top = viewportSize*2 + 'px';
-            men.style.left = viewportSize*2 + 'px';
+            waitForShip(shipSelected,men);
         
         // init score
         var score=0;
@@ -424,12 +421,14 @@
     }
 
      // function for waiting the user to select
-     function waitForShip(shipSelected){
+     function waitForShip(shipSelected,men){
          if(shipSelected===0){
             setTimeout(waitForShip, 50);//wait 50 millisecnds then recheck
-        return 0;
+             return;
          }
-         return 1;
+         
+            men.style.top = viewportSize*2 + 'px';
+            men.style.left = viewportSize*2 + 'px';
      }
 
     main();
