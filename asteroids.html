@@ -128,10 +128,6 @@
         }
         
          //menu
-        var shipSelected=0;
-        shipSelected=0;
-        
-        waitForShip(shipSelected,viewportSize);
         
         // init score
         var score=0;
@@ -429,9 +425,9 @@
             men.style.position = 'absolute';
             men.style.zIndex = 1; 
             men.style.color="white";
-            men.style.width = viewportSize;
-            men.style.height =viewportSize;
-            men.style.backgroundColor = "black";
+            men.style.width = 1000;
+            men.style.height =1000;
+            men.style.backgroundColor = "blue";
             men.innerHTML = "Elija la nave a mover \n 1) Azul \n 2)Rojo";
             men.style.top = 0 + 'px';
             men.style.left = 0 + 'px';
@@ -444,9 +440,10 @@
          
             men.style.top = viewportSize*2 + 'px';
             men.style.left = viewportSize*2 + 'px';
+         main();
      }
-
-    main();
+    
+        waitForShip();
     
     
 
