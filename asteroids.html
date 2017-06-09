@@ -25,7 +25,6 @@
     <script src="Restart.js"></script>
     <script>
         
-        var shipSelected=0;
     function main(){
     try{
         //keypresses
@@ -60,6 +59,25 @@
         
         //ortho camera for 2d rendering
         var camera = new THREE.OrthographicCamera( viewportSize / - 2, viewportSize / 2, viewportSize / 2, viewportSize / - 2, 1, 1000 );
+        
+        //menu
+        var shipSelected=0;
+        
+            var men = document.createElement('div');
+            men.style.position = 'absolute';
+            men.style.zIndex = 1; 
+            men.style.color="white";
+            men.style.width = viewportSize;
+            men.style.height =viewportSize;
+            men.style.backgroundColor = "black";
+            men.innerHTML = "Elija la nave a mover \n 1) Azul \n 2)Rojo";
+            men.style.top = 0 + 'px';
+            men.style.left = 0 + 'px';
+            document.body.appendChild(men);
+            while(shipSelected==0){
+            }
+            men.style.top = viewportSize*2 + 'px';
+            men.style.left = viewportSize*2 + 'px';
 
         //position camera
         camera.position.z = 1000;
@@ -406,21 +424,6 @@
         
         
         function menu(){
-            var text = document.createElement('div');
-            text.style.position = 'absolute';
-            text.style.zIndex = 1; 
-            text.style.color="white";
-            text.style.width = viewportSize;
-            text.style.height =viewportSize;
-            text.style.backgroundColor = "black";
-            text.innerHTML = "Elija la nave a mover \n 1) Azul \n 2)Rojo";
-            text.style.top = 0 + 'px';
-            text.style.left = 0 + 'px';
-            document.body.appendChild(text);
-            while(shipSelected==0){
-            }
-            text.style.top = viewportSize*2 + 'px';
-            text.style.left = viewportSize*2 + 'px';
         }
             
       menu();      
