@@ -45,14 +45,60 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour
 		case 2:
 			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
 			shipGeometry.vertices.push(new THREE.Vector3(1,2,0));
-			shipGeometry.vertices.push(new THREE.Vector3(1,0,0));
-			shipGeometry.vertices.push(new THREE.Vector3(2,-1,0));
-			shipGeometry.vertices.push(new THREE.Vector3(-2,-1,0));
-			shipGeometry.vertices.push(new THREE.Vector3(-1,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,-1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(2,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-2,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,-1,0));
 			shipGeometry.vertices.push(new THREE.Vector3(-1,2,0));
 			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
 			break;
-			   }
+		case 3:
+			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(2,1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(2,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-2,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-2,1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+			break;
+		case 4:
+			shipGeometry.vertices.push(new THREE.Vector3(0,2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,3,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(2,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-2,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,3,0));
+			shipGeometry.vertices.push(new THREE.Vector3(0,2,0));
+			break;
+		case 5:
+			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+			shipGeometry.vertices.push(new THREE.Vector3(2,-1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,-1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,-1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-2,-1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+			break;
+		case 6:
+			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(2,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(2,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,-1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,-1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-2,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-2,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,0,0));
+			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
+			break;
+			}
 	
     //create exhaust vertices
     exhaustGeometry.vertices.push(new THREE.Vector3(1,-2,0));
