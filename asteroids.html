@@ -129,11 +129,7 @@
         
          //menu
         var shipSelected=0;
-        
-            while(shipSelected==0){
-                window.setTimeout(100);
-            }
-            //waitForShip(shipSelected,viewportSize);
+        waitForShip(shipSelected,viewportSize);
         
         // init score
         var score=0;
@@ -372,7 +368,10 @@
                     Y_Down = true;
                     break;
                 case 97: // ship 1
-                    shipSelected=1;
+                    shipSelected = 1;
+                    break;                
+                case 49: // ship 1
+                    shipSelected = 1;
                     break;
             }
         }
@@ -425,8 +424,9 @@
             men.style.top = 0 + 'px';
             men.style.left = 0 + 'px';
             document.body.appendChild(men);
+         console.log("ship",shipSelected);
          if(shipSelected===0){
-            window.setTimeout(waitForShip, 50);//wait 50 millisecnds then recheck
+            window.setTimeout(waitForShip, 100);//wait 100 millisecnds then recheck
              return;
          }
          
