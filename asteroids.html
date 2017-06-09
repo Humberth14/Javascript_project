@@ -410,7 +410,8 @@
     }
 
      // function for waiting the user to select
-     function waitForShip(shipSelected,viewportSize){
+     function waitForShip(){
+         var shipSelected=0;
          function onDocumentKeyDown( event ) {
 
             switch( event.keyCode ) {
@@ -438,9 +439,9 @@
              return;
          }
          
-            men.style.top = viewportSize*2 + 'px';
-            men.style.left = viewportSize*2 + 'px';
-         main();
+            men.style.top = 10000*2 + 'px';
+            men.style.left = 1000*2 + 'px';
+            main();
      }
     
         waitForShip();
