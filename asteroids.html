@@ -25,7 +25,7 @@
     <script src="Restart.js"></script>
     <script>
         
-    function main(){
+    function main(shipSelected){
     try{
         //keypresses
         var Space_Down = false;
@@ -156,7 +156,7 @@
         //set the number of lives player has
         for(var i = 1; i <= Lives; i ++){
             var lifePosition = new THREE.Vector3((viewportSize/-2) + (20 * i), (viewportSize /2) - 20, 750);
-            var lifeShip = new SpaceShip(scene, Date.now(), viewportSize, 4, audioContext, false);
+            var lifeShip = new SpaceShip(scene, Date.now(), viewportSize, 4, audioContext, false,0xffffff,shipSelected);
             lifeShip.setPosition(lifePosition);
             LivesLeft.push(lifeShip);
         }
@@ -465,7 +465,7 @@
          }
          
            men.parentNode.removeChild(men);
-            main();
+            main(shipSelected);
      }
     
     shipSelected=0;
