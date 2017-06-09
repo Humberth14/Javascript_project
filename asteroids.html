@@ -131,7 +131,7 @@
         var shipSelected=0;
         
             
-            waitForShip(shipSelected);
+            waitForShip(shipSelected,viewportSize);
         
         // init score
         var score=0;
@@ -411,7 +411,7 @@
     }
 
      // function for waiting the user to select
-     function waitForShip(shipSelected){
+     function waitForShip(shipSelected,viewportSize){
          var men = document.createElement('div');
             men.style.position = 'absolute';
             men.style.zIndex = 1; 
