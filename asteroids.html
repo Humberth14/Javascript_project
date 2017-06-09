@@ -366,10 +366,8 @@
                     Y_Down = true;
                     break;
                 case 97: // ship 1
-                    shipSelected = 1;
                     break;                
                 case 49: // ship 1
-                    shipSelected = 1;
                     break;
             }
         }
@@ -411,7 +409,6 @@
 
      // function for waiting the user to select
      function waitForShip(){
-         var shipSelected=0;
          function onDocumentKeyDown( event ) {
 
             switch( event.keyCode ) {
@@ -421,8 +418,8 @@
                                   }
          }
          
-        document.addEventListener( 'keydown', onDocumentKeyDown, false );
-         var men = document.createElement('div');
+            document.addEventListener( 'keydown', onDocumentKeyDown, false );
+            var men = document.createElement('div');
             men.style.position = 'absolute';
             men.style.zIndex = 1; 
             men.style.color="white";
@@ -435,7 +432,7 @@
             document.body.appendChild(men);
          console.log("ship",shipSelected);
          if(shipSelected===0 || shipSelected===undefined){
-            window.setTimeout(waitForShip, 100);//wait 100 millisecnds then recheck
+            setTimeout(waitForShip, 100);//wait 100 millisecnds then recheck
              return;
          }
          
@@ -444,6 +441,7 @@
             main();
      }
     
+    shipSelected=0;
         waitForShip();
     
     
