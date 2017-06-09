@@ -68,7 +68,13 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, la
 	    asteroid1Geometry.vertices.push(new THREE.Vector3(-3,-3,0));
 	    
 	    // init texture
-		var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste.jpg' );
+		var textureRandom=Math.random();
+		if(textureRandom<0.3)
+			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste.jpg' );
+		else if(0.3<=textureRandom && textureRandom<0.6)
+			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste2.jpg' );
+		else if(0.6<textureRandom)
+			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste3.jpg' );
 		var mainAsteroid = new THREE.Mesh(new THREE.SphereGeometry(10,4,4),new THREE.MeshLambertMaterial({map:asteroidTexture}));
 		
 	    //create the asteroid
