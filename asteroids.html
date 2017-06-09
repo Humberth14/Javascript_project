@@ -243,6 +243,10 @@
                     spaceShip.setInvincible();
                     invincible = true;
                     score=0;
+                    text.innerHTML = "SCORE: "+score.toString();
+                    text.style.top = 50 + 'px';
+                    text.style.left = viewportSize/2 + 'px';
+                    document.body.appendChild(text);
                     var asteroids = []
                     for(var i = 0; i < 5; i ++){
                         var a = new Asteroid(scene,5,2,viewportSize,time - 1, audioContext, null, null, null);
