@@ -88,14 +88,14 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour
 			break;
 		case 6:
 			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
-			shipGeometry.vertices.push(new THREE.Vector3(1,0,0));
-			shipGeometry.vertices.push(new THREE.Vector3(2,0,0));
-			shipGeometry.vertices.push(new THREE.Vector3(2,-2,0));
 			shipGeometry.vertices.push(new THREE.Vector3(1,-1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(2,-1,0));
+			shipGeometry.vertices.push(new THREE.Vector3(2,-3,0));
+			shipGeometry.vertices.push(new THREE.Vector3(1,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-1,-2,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-2,-3,0));
+			shipGeometry.vertices.push(new THREE.Vector3(-2,-1,0));
 			shipGeometry.vertices.push(new THREE.Vector3(-1,-1,0));
-			shipGeometry.vertices.push(new THREE.Vector3(-2,-2,0));
-			shipGeometry.vertices.push(new THREE.Vector3(-2,0,0));
-			shipGeometry.vertices.push(new THREE.Vector3(-1,0,0));
 			shipGeometry.vertices.push(new THREE.Vector3(0,3,0));
 			break;
 			}
