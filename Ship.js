@@ -323,27 +323,7 @@ function Bullet(shipLocation, shipRotation, scale, scene, time, viewportSize,col
 	}
 
 	var whiteMaterial = new THREE.MeshBasicMaterial( { color: colour } ); 
-	var bulletShape=new THREE.Shape();
-	bulletShape.moveTo(0,1);
-	bulletShape.lineTo(1,2);
-	bulletShape.lineTo(1,1);
-	bulletShape.lineTo(2,1);
-	bulletShape.lineTo(1,0);
-	bulletShape.lineTo(2,-1);
-	bulletShape.lineTo(1,-1);
-	bulletShape.lineTo(1,-2);
-	bulletShape.lineTo(0,-1);
-	bulletShape.lineTo(-1,-2);
-	bulletShape.lineTo(-1,-1);
-	bulletShape.lineTo(-2,-1);
-	bulletShape.lineTo(-1,0);
-	bulletShape.lineTo(-2,1);
-	bulletShape.lineTo(-1,1);
-	bulletShape.lineTo(-1,2);
-	//var bullet = new THREE.Mesh( new THREE.PlaneGeometry( 1 * scale, 1 * scale, 1, 1 ), whiteMaterial );
-	var bullet = new THREE.Mesh( new THREE.ShapeGeometry(bulletShape), whiteMaterial );
-	bulletShape.scale.set(scale,scale);
-    
+	var bullet = new THREE.Mesh( new THREE.PlaneGeometry( 1 * scale, 1 * scale, 1, 1 ), whiteMaterial );
     //spawn bullet on ships nose
 	var noseVector = new THREE.Vector3(0,3 * scale, 0);
 	var m = new THREE.Matrix4();
