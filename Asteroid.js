@@ -69,12 +69,19 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, la
 	    
 	    // init texture
 		var textureRandom=Math.random();
-		if(textureRandom<0.3)
+		if(textureRandom<0.16)
 			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste.jpg' );
-		else if(0.3<=textureRandom && textureRandom<0.6)
+		else if(0.16<=textureRandom && textureRandom<0.32)
 			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste2.jpg' );
-		else if(0.6<textureRandom)
+		else if(0.32<=textureRandom && textureRandom<0.48)
 			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste3.jpg' );
+		else if(0.48<=textureRandom && textureRandom<0.64)
+			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste4.jpg' );
+		else if(0.64<=textureRandom && textureRandom<0.80)
+			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste5.jpg' );
+		else if(0.8<textureRandom)
+			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste6.jpg' );
+		
 		var mainAsteroid = new THREE.Mesh(new THREE.SphereGeometry(10,4,4),new THREE.MeshLambertMaterial({map:asteroidTexture}));
 		
 	    //create the asteroid
