@@ -238,7 +238,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour
     	updateTime(t);
 
     	//set time based on whether or not space was held
-    	var shotdelay = held ? 350-(240-40*shipSelected) : 100;
+    	var shotdelay = held ? 350-(300-50*shipSelected) : 100;
 
         //sounds
         var shotSource = audioContext.createBufferSource();
@@ -248,7 +248,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour
     	//check to see if enough time has elapsed since the last shot
     	if(lastTime - lastShot > shotdelay){
     		lastShot = lastTime;
-    		var b = new Bullet(spaceShip.position, spaceShip.rotation, scale+(-0.4*shipSelected+2.4), scene, lastTime, viewportSize,colour);
+    		var b = new Bullet(spaceShip.position, spaceShip.rotation, scale+(-0.6*shipSelected+3.6), scene, lastTime, viewportSize,colour);
             shotSource.start(0);
     		return b;
     	}
