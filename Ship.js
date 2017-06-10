@@ -248,7 +248,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour
     	//check to see if enough time has elapsed since the last shot
     	if(lastTime - lastShot > shotdelay){
     		lastShot = lastTime;
-    		var b = new Bullet(spaceShip.position, spaceShip.rotation, 2*shipSelected/6, scene, lastTime, viewportSize);
+    		var b = new Bullet(spaceShip.position, spaceShip.rotation, -2/5*shipSelected+17/5, scene, lastTime, viewportSize);
             shotSource.start(0);
     		return b;
     	}
