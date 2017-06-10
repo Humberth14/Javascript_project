@@ -342,6 +342,7 @@ function Bullet(shipLocation, shipRotation, scale, scene, time, viewportSize,col
 	bulletShape.lineTo(-1,2);
 	//var bullet = new THREE.Mesh( new THREE.PlaneGeometry( 1 * scale, 1 * scale, 1, 1 ), whiteMaterial );
 	var bullet = new THREE.Mesh( new THREE.ShapeGeometry(bulletShape), whiteMaterial );
+	bulletShape.scale.set(scale,scale);
     
     //spawn bullet on ships nose
 	var noseVector = new THREE.Vector3(0,3 * scale, 0);
