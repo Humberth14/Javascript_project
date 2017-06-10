@@ -248,7 +248,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour
     	//check to see if enough time has elapsed since the last shot
     	if(lastTime - lastShot > shotdelay){
     		lastShot = lastTime;
-    		var b = new Bullet(spaceShip.position, spaceShip.rotation, scale+(-0.4*shipSelected+2.4), scene, lastTime, viewportSize);
+    		var b = new Bullet(spaceShip.position, spaceShip.rotation, scale+(-0.4*shipSelected+2.4), scene, lastTime, viewportSize,colour);
             shotSource.start(0);
     		return b;
     	}
@@ -306,7 +306,7 @@ function SpaceShip(scene, time, viewportSize, scale, audioContext, player,colour
 
 }
 
-function Bullet(shipLocation, shipRotation, scale, scene, time, viewportSize){
+function Bullet(shipLocation, shipRotation, scale, scene, time, viewportSize,colour){
 
 	//time the bullet was created
 	var startTime = time;
@@ -322,7 +322,7 @@ function Bullet(shipLocation, shipRotation, scale, scene, time, viewportSize){
 		}
 	}
 
-	var whiteMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff } ); 
+	var whiteMaterial = new THREE.MeshBasicMaterial( { color: colour } ); 
 	var bullet = new THREE.Mesh( new THREE.PlaneGeometry( 1 * scale, 1 * scale, 1, 1 ), whiteMaterial );
     
     //spawn bullet on ships nose
