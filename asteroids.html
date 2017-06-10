@@ -215,7 +215,7 @@
                 //shoot dem bullets
                 if(Space_Down && !newgame.shown()){
 
-                    var newBullet = spaceShip.shoot(time, Space_Held);
+                    var newBullet = spaceShip.shoot(time, Space_Held, shipSelected);
                     //if a new bullet has been created add it to the bullet array
                     if (newBullet != undefined){
                         activeBullets.push(newBullet);
