@@ -1,18 +1,18 @@
 function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, largeExplosionBuffer, mediumExplosionBuffer, smallExplosionBuffer){
 
-	try{
-		//the white line we use to draw the asteroids
-	    var asteroidMaterial = new THREE.LineBasicMaterial( { color: 0xffffff} );
-	    //holds vertices for drawing various asteroids
-	    var asteroid1Geometry = new THREE.Geometry();
-	    //the direction the asteroid is flying
-	    var xDMod = Math.random() > .5 ? 1 : -1;
-	    var yDMod = Math.random() > .5 ? 1 : -1;
-	    var asteroidVector = new THREE.Vector3(Math.random() * difficulty * 75 * xDMod, Math.random() * difficulty * 75 * yDMod, -5);
+try{
+//Se definen los asteroides con lineas blancas
+var asteroidMaterial = new THREE.LineBasicMaterial( { color: 0xffffff} );
+//Se mantienen los vertices para dibujar varios asteroides
+var asteroid1Geometry = new THREE.Geometry();
+//Se define la direccion del asteroide
+var xDMod = Math.random() > .5 ? 1 : -1;
+var yDMod = Math.random() > .5 ? 1 : -1;
+var asteroidVector = new THREE.Vector3(Math.random() * difficulty * 75 * xDMod, Math.random() * difficulty * 75 * yDMod, -5);
 
 	    this.position = new THREE.Vector3();
 	    this.Difficulty = difficulty;
-	    var that = this;
+//	    var that = this;
 
 
 	    //last time the asteroid was updated
