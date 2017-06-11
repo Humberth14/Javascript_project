@@ -1,7 +1,7 @@
 function newGame(scene){
 		
 		//line coloring
-	    var letterMaterial = new THREE.LineBasicMaterial( { color: 0xffffff} );
+	    var letterMaterial = new THREE.LineBasicMaterial( { color: 0x1ffaff} );
 	    //holds vertices for drawing various asteroids
 	    var letterGeometry = new THREE.Geometry();
 
@@ -41,94 +41,7 @@ function newGame(scene){
 	    letterGeometry.vertices.push(new THREE.Vector3(7.5,0,0));
 	    letterGeometry.vertices.push(new THREE.Vector3(8,5,0));
 
-	    //"G"
-	    letterGeometry.vertices.push(new THREE.Vector3(11,0,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(11,5,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(11,5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(13,5,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(11,0,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(13,0,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(13,0,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(13,2.5,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(13,2.5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(12,2.5,0));
-
-	    //"A"
-	    letterGeometry.vertices.push(new THREE.Vector3(14,0,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(15,5,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(15,5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(16,0,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(14.5,2.5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(15.5,2.5,0));
-
-	    //"M"
-	    letterGeometry.vertices.push(new THREE.Vector3(17,0,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(17,5,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(17,5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(18,2.5,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(18,2.5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(19,5,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(19,5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(19,0,0));
-
-	    //"E"
-	    letterGeometry.vertices.push(new THREE.Vector3(20,0,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(20,5,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(20,5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(22,5,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(20,0,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(22,0,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(20,2.5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(22,2.5,0));
-
-	    //"Y"
-	    letterGeometry.vertices.push(new THREE.Vector3(5.5,-2,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(6.5,-4.5,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(6.5,-4.5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(7.5,-2,0));
-
-		letterGeometry.vertices.push(new THREE.Vector3(6.5,-4.5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(6.5,-7,0));
-
-	    //"/"
-	    letterGeometry.vertices.push(new THREE.Vector3(8.5,-7,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(10.5,-2,0));
-
-	    //"N"
-	    letterGeometry.vertices.push(new THREE.Vector3(11.5,-7,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(11.5,-2,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(13.5,-7,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(13.5,-2,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(11.5,-2,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(13.5,-7,0));
-
-	    //"?"
-	    letterGeometry.vertices.push(new THREE.Vector3(15.5,-7,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(15.5,-4.5,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(15.5,-4.5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(16.5,-4.5,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(16.5,-4.5,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(16.5,-2,0));
-
-	    letterGeometry.vertices.push(new THREE.Vector3(16.5,-2,0));
-	    letterGeometry.vertices.push(new THREE.Vector3(14.5,-2,0));
+	    
 
 
 
