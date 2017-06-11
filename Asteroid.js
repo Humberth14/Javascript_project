@@ -1,8 +1,6 @@
 function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, largeExplosionBuffer, mediumExplosionBuffer, smallExplosionBuffer){
 
 try{
-//Se mantienen los vertices para dibujar varios asteroides
-//var asteroid1Geometry = new THREE.Geometry();
 //Se define la direccion del asteroide
 var xDMod = Math.random() > .5 ? 1 : -1;
 var yDMod = Math.random() > .5 ? 1 : -1;
@@ -61,31 +59,25 @@ else if(0.64<=textureRandom && textureRandom<0.80)
 var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste5.jpg' );
 else if(0.8<textureRandom)
 var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste6.jpg' );
-var mainAsteroid = new THREE.Mesh(new THREE.SphereGeometry(10,4,4),new THREE.MeshLambertMaterial({map:asteroidTexture}));
-		
-	    //create the asteroid
-	    
-
-	    //the bullet hitbox of the asteroid
-	    var bulletHitboxVertices = [];
-	    bulletHitboxVertices.push(new THREE.Vector3(-4 * scale,-4 * scale,0));
-	    bulletHitboxVertices.push(new THREE.Vector3(-4 * scale,4 * scale,0));
-	    bulletHitboxVertices.push(new THREE.Vector3(4 * scale,4 * scale,0));
-	    bulletHitboxVertices.push(new THREE.Vector3(4 * scale,-4 * scale,0));
-
-	    //check if any of the points collides with this hitbox
-	    this.checkCollision = function(points){
-	    	for(var i = 0; i < points.length; i ++){
-	    		//check vertical plane of hitbox
-	    		if(points[i].y < bulletHitboxVertices[1].y && points[i].y > bulletHitboxVertices[0].y ){
-	    			//check horizontal plane of the hitbox
-	    			if(points[i].x < bulletHitboxVertices[2].x && points[i].x > bulletHitboxVertices[0].x ) {
-	    				return true;
-	    			}
-	    		}
-	    	}
-	    	return false;
-	    }
+//se crea el asteroide
+var mainAsteroid = new THREE.Mesh(new THREE.SphereGeometry(10,4,4),new THREE.MeshLambertMaterial({map:asteroidTexture}));   
+//Se crea mediante 4 vectores la hitbox
+var bulletHitboxVertices = [];
+bulletHitboxVertices.push(new THREE.Vector3(-4 * scale,-4 * scale,0));
+bulletHitboxVertices.push(new THREE.Vector3(-4 * scale,4 * scale,0));
+bulletHitboxVertices.push(new THREE.Vector3(4 * scale,4 * scale,0));
+bulletHitboxVertices.push(new THREE.Vector3(4 * scale,-4 * scale,0));
+//checa si alguno de los puntos choco con la hitbox
+this.checkCollision = function(points){
+for(var i = 0; i < points.length; i ++){
+//vertical
+if(points[i].y < bulletHitboxVertices[1].y && points[i].y > bulletHitboxVertices[0].y ){
+//horizontal
+if(points[i].x < bulletHitboxVertices[2].x && points[i].x > bulletHitboxVertices[0].x ) {
+return true;
+}}}
+return false;
+}
 
 	    //set a random starting position
 	    this.randomStart = function(){
