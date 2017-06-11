@@ -8,14 +8,12 @@ var asteroid1Geometry = new THREE.Geometry();
 //Se define la direccion del asteroide
 var xDMod = Math.random() > .5 ? 1 : -1;
 var yDMod = Math.random() > .5 ? 1 : -1;
+//Se define un vector de 3 elementos para definir la posicion del asteroide
 var asteroidVector = new THREE.Vector3(Math.random() * difficulty * 75 * xDMod, Math.random() * difficulty * 75 * yDMod, -5);
-
-	    this.position = new THREE.Vector3();
-	    this.Difficulty = difficulty;
-//	    var that = this;
-
-
-	    //last time the asteroid was updated
+this.position = new THREE.Vector3();
+this.Difficulty = difficulty;
+var that = this;
+//last time the asteroid was updated
 		var lastTime = time;
 		var timeDelta;
 		function updateTime(t){
