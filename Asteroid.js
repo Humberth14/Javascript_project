@@ -2,7 +2,7 @@ function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, la
 
 try{
 //Se definen los asteroides con lineas blancas
-var asteroidMaterial = new THREE.LineBasicMaterial( { color: 0xffffff} );
+//var asteroidMaterial = new THREE.LineBasicMaterial( { color: 0xffffff} );
 //Se mantienen los vertices para dibujar varios asteroides
 var asteroid1Geometry = new THREE.Geometry();
 //Se define la direccion del asteroide
@@ -48,18 +48,7 @@ smallExplosionBuffer = buffer;
 }
 request.send();
 }
-if(largeExplosionBuffer == null)loadSounds(0);
-//Se genera la geometria del asteroide
-//asteroid1Geometry.vertices.push(new THREE.Vector3(-3,-3,0));
-//asteroid1Geometry.vertices.push(new THREE.Vector3(-4,0,0));
-//asteroid1Geometry.vertices.push(new THREE.Vector3(-3,4,0));
-//asteroid1Geometry.vertices.push(new THREE.Vector3(-2,3,0));
-//asteroid1Geometry.vertices.push(new THREE.Vector3(1,4,0));
-//asteroid1Geometry.vertices.push(new THREE.Vector3(4,2,0));
-//asteroid1Geometry.vertices.push(new THREE.Vector3(1,0,0));
-//asteroid1Geometry.vertices.push(new THREE.Vector3(4,-1,0));
-//asteroid1Geometry.vertices.push(new THREE.Vector3(2,-4,0));
-//asteroid1Geometry.vertices.push(new THREE.Vector3(-3,-3,0));   
+if(largeExplosionBuffer == null)loadSounds(0); 
 // Se cargan las 6 texturas de manera aleatoria
 var textureRandom=Math.random();
 if(textureRandom<0.16)
