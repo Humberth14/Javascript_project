@@ -4,7 +4,7 @@ try{
 //Se definen los asteroides con lineas blancas
 //var asteroidMaterial = new THREE.LineBasicMaterial( { color: 0xffffff} );
 //Se mantienen los vertices para dibujar varios asteroides
-var asteroid1Geometry = new THREE.Geometry();
+//var asteroid1Geometry = new THREE.Geometry();
 //Se define la direccion del asteroide
 var xDMod = Math.random() > .5 ? 1 : -1;
 var yDMod = Math.random() > .5 ? 1 : -1;
