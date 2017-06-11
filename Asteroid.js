@@ -9,7 +9,7 @@ var asteroidVector = new THREE.Vector3(Math.random() * difficulty * 75 * xDMod, 
 this.position = new THREE.Vector3();
 this.Difficulty = difficulty;
 var that = this;
-//Se crea una funcion para la regeneracion del asteroide
+//Se crea una funcion para el tiempo de regeneracion del asteroide
 var lastTime = time;
 var timeDelta;
 function updateTime(t){
