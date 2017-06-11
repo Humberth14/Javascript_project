@@ -1,8 +1,6 @@
 function Asteroid(scene, scale, difficulty, viewportSize, time, audioContext, largeExplosionBuffer, mediumExplosionBuffer, smallExplosionBuffer){
 
 try{
-//Se definen los asteroides con lineas blancas
-//var asteroidMaterial = new THREE.LineBasicMaterial( { color: 0xffffff} );
 //Se mantienen los vertices para dibujar varios asteroides
 //var asteroid1Geometry = new THREE.Geometry();
 //Se define la direccion del asteroide
