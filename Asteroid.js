@@ -13,74 +13,68 @@ var asteroidVector = new THREE.Vector3(Math.random() * difficulty * 75 * xDMod, 
 this.position = new THREE.Vector3();
 this.Difficulty = difficulty;
 var that = this;
-//last time the asteroid was updated
-		var lastTime = time;
-		var timeDelta;
-		function updateTime(t){
-			if(lastTime == t) return;
-			else{
-				timeDelta = (t - lastTime) / 1000;
-				lastTime = t;
-			}
-		}
+//Se crea una funcion para la regeneracion del asteroide
+var lastTime = time;
+var timeDelta;
+function updateTime(t){
+if(lastTime == t) return;
+else{
+timeDelta = (t - lastTime) / 1000;
+lastTime = t;
+}
+}
 
-		//set asteroid
-        function loadSounds(i){
-
-            var request = new XMLHttpRequest();
-            if(i == 0)request.open('GET', "Sounds/Ahhh!.wav", true);
-            if(i == 1)request.open('GET', "Sounds/Ahhh!.wav", true);
-            if(i == 2)request.open('GET', "Sounds/Ahhh!.wav", true);
-            request.responseType = 'arraybuffer';
-
-            // Decode asynchronously
-            request.onload = function() {
-                audioContext.decodeAudioData(request.response, function(buffer) {
-                if(i == 0){
-                    largeExplosionBuffer = buffer;
-                    loadSounds(1);
-                }
-                if(i == 1){
-                    mediumExplosionBuffer = buffer;
-                    loadSounds(2);
-                }
-                if(i == 2){
-                    smallExplosionBuffer = buffer;
-                }
-                });
-            }
-            request.send();
-        }
-        if(largeExplosionBuffer == null)loadSounds(0);
-
-	    //possible asteroid geometry
-	    asteroid1Geometry.vertices.push(new THREE.Vector3(-3,-3,0));
-	    asteroid1Geometry.vertices.push(new THREE.Vector3(-4,0,0));
-	    asteroid1Geometry.vertices.push(new THREE.Vector3(-3,4,0));
-	    asteroid1Geometry.vertices.push(new THREE.Vector3(-2,3,0));
-	    asteroid1Geometry.vertices.push(new THREE.Vector3(1,4,0));
-	    asteroid1Geometry.vertices.push(new THREE.Vector3(4,2,0));
-	    asteroid1Geometry.vertices.push(new THREE.Vector3(1,0,0));
-	    asteroid1Geometry.vertices.push(new THREE.Vector3(4,-1,0));
-	    asteroid1Geometry.vertices.push(new THREE.Vector3(2,-4,0));
-	    asteroid1Geometry.vertices.push(new THREE.Vector3(-3,-3,0));
-	    
-	    // init texture
-		var textureRandom=Math.random();
-		if(textureRandom<0.16)
-			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste.jpg' );
-		else if(0.16<=textureRandom && textureRandom<0.32)
-			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste2.jpg' );
-		else if(0.32<=textureRandom && textureRandom<0.48)
-			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste3.jpg' );
-		else if(0.48<=textureRandom && textureRandom<0.64)
-			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste4.jpg' );
-		else if(0.64<=textureRandom && textureRandom<0.80)
-			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste5.jpg' );
-		else if(0.8<textureRandom)
-			var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste6.jpg' );
-		
-		var mainAsteroid = new THREE.Mesh(new THREE.SphereGeometry(10,4,4),new THREE.MeshLambertMaterial({map:asteroidTexture}));
+//se genera una funcion que cargue al buffer los archivos de sonido
+function loadSounds(i){
+var request = new XMLHttpRequest();
+if(i == 0)request.open('GET', "Sounds/Ahhh!.wav", true);
+if(i == 1)request.open('GET', "Sounds/Ahhh!.wav", true);
+if(i == 2)request.open('GET', "Sounds/Ahhh!.wav", true);
+request.responseType = 'arraybuffer';
+request.onload = function() {
+audioContext.decodeAudioData(request.response, function(buffer) {
+if(i == 0){
+largeExplosionBuffer = buffer;
+loadSounds(1);
+}
+if(i == 1){
+mediumExplosionBuffer = buffer;
+loadSounds(2);
+}
+if(i == 2){
+smallExplosionBuffer = buffer;
+}
+});
+}
+request.send();
+}
+if(largeExplosionBuffer == null)loadSounds(0);
+//Se genera la geometria del asteroide
+//asteroid1Geometry.vertices.push(new THREE.Vector3(-3,-3,0));
+//asteroid1Geometry.vertices.push(new THREE.Vector3(-4,0,0));
+//asteroid1Geometry.vertices.push(new THREE.Vector3(-3,4,0));
+//asteroid1Geometry.vertices.push(new THREE.Vector3(-2,3,0));
+//asteroid1Geometry.vertices.push(new THREE.Vector3(1,4,0));
+//asteroid1Geometry.vertices.push(new THREE.Vector3(4,2,0));
+//asteroid1Geometry.vertices.push(new THREE.Vector3(1,0,0));
+//asteroid1Geometry.vertices.push(new THREE.Vector3(4,-1,0));
+//asteroid1Geometry.vertices.push(new THREE.Vector3(2,-4,0));
+//asteroid1Geometry.vertices.push(new THREE.Vector3(-3,-3,0));   
+// Se cargan las 6 texturas de manera aleatoria
+var textureRandom=Math.random();
+if(textureRandom<0.16)
+var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste.jpg' );
+else if(0.16<=textureRandom && textureRandom<0.32)
+var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste2.jpg' );
+else if(0.32<=textureRandom && textureRandom<0.48)
+var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste3.jpg' );
+else if(0.48<=textureRandom && textureRandom<0.64)
+var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste4.jpg' );
+else if(0.64<=textureRandom && textureRandom<0.80)
+var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste5.jpg' );
+else if(0.8<textureRandom)
+var asteroidTexture =new THREE.ImageUtils.loadTexture( 'images/aste6.jpg' );
+var mainAsteroid = new THREE.Mesh(new THREE.SphereGeometry(10,4,4),new THREE.MeshLambertMaterial({map:asteroidTexture}));
 		
 	    //create the asteroid
 	    
