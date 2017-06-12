@@ -78,134 +78,108 @@ return true;
 }}}
 return false;
 }
-
-	    //set a random starting position
-	    this.randomStart = function(){
-	    	var startX = 0;
-	    	var startY = 0;
-	    	while(that.checkCollision([new THREE.Vector3(10, 10, 0)])){
-	    		startX = Math.random() * viewportSize;
-		    	startY = Math.random() * viewportSize;
-		    	startX = startX > viewportSize / 2 ? (startX - (viewportSize/2)) * -1 : startX;
-		    	startY = startY > viewportSize / 2 ? (startY - (viewportSize/2)) * -1 : startY;
-		    	
-		    	bulletHitboxVertices = [];
-	    		bulletHitboxVertices.push(new THREE.Vector3((-4 * scale) + startX,(-4 * scale) + startY,0));
-	    		bulletHitboxVertices.push(new THREE.Vector3((-4 * scale) + startX,(4 * scale) + startY,0));
-	    		bulletHitboxVertices.push(new THREE.Vector3((4 * scale) + startX,(4 * scale) + startY,0));
-	    		bulletHitboxVertices.push(new THREE.Vector3((4 * scale) + startX,(-4 * scale) + startY,0));
-
-		    	mainAsteroid.position.set(startX, startY, 750);
-		    	that.position.copy(mainAsteroid.position);
-	    	}
-	    	
-	    }
-
-	    //a fixed starting position
-	    this.fixedStart = function(location){
-	    	var startX = location.x;
-	    	var startY = location.y;
-
-	    	bulletHitboxVertices = [];
-    		bulletHitboxVertices.push(new THREE.Vector3((-4 * scale) + startX,(-4 * scale) + startY,0));
-    		bulletHitboxVertices.push(new THREE.Vector3((-4 * scale) + startX,(4 * scale) + startY,0));
-    		bulletHitboxVertices.push(new THREE.Vector3((4 * scale) + startX,(4 * scale) + startY,0));
-    		bulletHitboxVertices.push(new THREE.Vector3((4 * scale) + startX,(-4 * scale) + startY,0));
-
-	    	mainAsteroid.position.set(startX, startY, 750);
-	    	if(isNaN(mainAsteroid.position.x)) alert("bFUCK");
-	    	that.position.copy(mainAsteroid.position);
-	    	if(isNaN(that.position.x)) alert("cFUCK");
-	    }
-	    
-
-	    //set asteroid scale
-	    if(isNaN(mainAsteroid.position.x)) alert("aFUCK");
-	    mainAsteroid.scale.set(scale,scale,1);
-	    scene.add(mainAsteroid);
-
-
-	    function setHitboxXY(xValue, yValue){
-	    	bulletHitboxVertices = [];
-			bulletHitboxVertices.push(new THREE.Vector3((-4 * scale) + xValue,(-4 * scale) + yValue,0));
-			bulletHitboxVertices.push(new THREE.Vector3((-4 * scale) + xValue,(4 * scale) + yValue,0));
-			bulletHitboxVertices.push(new THREE.Vector3((4 * scale) + xValue,(4 * scale) + yValue,0));
-			bulletHitboxVertices.push(new THREE.Vector3((4 * scale) + xValue,(-4 * scale) + yValue,0));
-	    }
-
-	    this.draw = function(t){
-
-	    	updateTime(t);
-	    	var vec = new THREE.Vector3();
-	    	vec.copy(asteroidVector);
-	    	vec.multiplyScalar(timeDelta);
-	    	mainAsteroid.position.add(vec);
-	    	that.position.copy(mainAsteroid.position);
-
-	    	//check to see if we went 
-	    	if(mainAsteroid.position.x < viewportSize / -2){
-	            mainAsteroid.position.x = viewportSize / 2;
-	        }
-	        if(mainAsteroid.position.x > viewportSize / 2){ 
-	            mainAsteroid.position.x = viewportSize / -2;
-	        }
-	        if(mainAsteroid.position.y < viewportSize / -2){ 
-	            mainAsteroid.position.y = viewportSize / 2;
-	        }
-	        if(mainAsteroid.position.y > viewportSize / 2){ 
-	            mainAsteroid.position.y = viewportSize / -2;
-	        }
-
-	        setHitboxXY(mainAsteroid.position.x, mainAsteroid.position.y);
-	    }
-
-	    this.destroy = function(sound){
-	    	scene.remove(mainAsteroid);
-	    	var childAsteroids = [];
-
-	    	if(scale == 5){
-	    		//large explosion
-		        var explosionSource = audioContext.createBufferSource();
-		        explosionSource.buffer = largeExplosionBuffer;
-		        explosionSource.connect(audioContext.destination);
-		        if(sound)explosionSource.start(0);
-
-		        var seedDate = Date.now();
-		        for(var i = 0; i < 3; i ++){
-		            var a = new Asteroid(scene,3,that.Difficulty,viewportSize,seedDate, audioContext, largeExplosionBuffer, mediumExplosionBuffer, smallExplosionBuffer);
-		            a.fixedStart(that.position)
-		            childAsteroids.push(a);
-		        }
-	    	}
-
-	    	if(scale == 3){
-	    		//medium explosion
-		        var explosionSource = audioContext.createBufferSource();
-		        explosionSource.buffer = mediumExplosionBuffer;
-		        explosionSource.connect(audioContext.destination);
-		        if(sound)explosionSource.start(0);
-
-	    		var seedDate = Date.now();
-		        for(var i = 0; i < 3; i ++){
-		            var a = new Asteroid(scene,2,that.Difficulty,viewportSize,seedDate, audioContext, largeExplosionBuffer, mediumExplosionBuffer, smallExplosionBuffer);
-		            a.fixedStart(that.position)
-		            childAsteroids.push(a);
-		        }
-	    	}
-
-	    	if(scale == 2){
-	    		//small explosion
-		        var explosionSource = audioContext.createBufferSource();
-		        explosionSource.buffer = smallExplosionBuffer;
-		        explosionSource.connect(audioContext.destination);
-		        if(sound)explosionSource.start(0);
-	    	}
-
-	    	return childAsteroids;
-	    }
-	}
-	catch(err){
-		alert(err);
-	}
-	
+//Funcion para un comienzo aleatorio de los asteroides
+this.randomStart = function(){
+var startX = 0;
+var startY = 0;
+while(that.checkCollision([new THREE.Vector3(10, 10, 0)])){
+startX = Math.random() * viewportSize;
+startY = Math.random() * viewportSize;
+startX = startX > viewportSize / 2 ? (startX - (viewportSize/2)) * -1 : startX;
+startY = startY > viewportSize / 2 ? (startY - (viewportSize/2)) * -1 : startY;
+bulletHitboxVertices = [];
+bulletHitboxVertices.push(new THREE.Vector3((-4 * scale) + startX,(-4 * scale) + startY,0));
+bulletHitboxVertices.push(new THREE.Vector3((-4 * scale) + startX,(4 * scale) + startY,0));
+bulletHitboxVertices.push(new THREE.Vector3((4 * scale) + startX,(4 * scale) + startY,0));
+bulletHitboxVertices.push(new THREE.Vector3((4 * scale) + startX,(-4 * scale) + startY,0));
+mainAsteroid.position.set(startX, startY, 750);
+that.position.copy(mainAsteroid.position);
+}}
+//funcion para un comienzo fijo de los asteroides (mini asteroides)
+this.fixedStart = function(location){
+var startX = location.x;
+var startY = location.y;
+bulletHitboxVertices = [];
+bulletHitboxVertices.push(new THREE.Vector3((-4 * scale) + startX,(-4 * scale) + startY,0));
+bulletHitboxVertices.push(new THREE.Vector3((-4 * scale) + startX,(4 * scale) + startY,0));
+bulletHitboxVertices.push(new THREE.Vector3((4 * scale) + startX,(4 * scale) + startY,0));
+bulletHitboxVertices.push(new THREE.Vector3((4 * scale) + startX,(-4 * scale) + startY,0));
+mainAsteroid.position.set(startX, startY, 750);
+if(isNaN(mainAsteroid.position.x)) alert("bFUCK");
+that.position.copy(mainAsteroid.position);
+if(isNaN(that.position.x)) alert("cFUCK");
+}
+//escalar el asteroide
+if(isNaN(mainAsteroid.position.x)) alert("aFUCK");
+mainAsteroid.scale.set(scale,scale,1);
+scene.add(mainAsteroid);
+//escalar hitboxes
+function setHitboxXY(xValue, yValue){
+bulletHitboxVertices = [];
+bulletHitboxVertices.push(new THREE.Vector3((-4 * scale) + xValue,(-4 * scale) + yValue,0));
+bulletHitboxVertices.push(new THREE.Vector3((-4 * scale) + xValue,(4 * scale) + yValue,0));
+bulletHitboxVertices.push(new THREE.Vector3((4 * scale) + xValue,(4 * scale) + yValue,0));
+bulletHitboxVertices.push(new THREE.Vector3((4 * scale) + xValue,(-4 * scale) + yValue,0));
+}
+//funcion que dibuja el escenario
+this.draw = function(t){
+updateTime(t);
+var vec = new THREE.Vector3();
+vec.copy(asteroidVector);
+vec.multiplyScalar(timeDelta);
+mainAsteroid.position.add(vec);
+that.position.copy(mainAsteroid.position);
+//checar si esta en los limites del tablero
+if(mainAsteroid.position.x < viewportSize / -2){
+mainAsteroid.position.x = viewportSize / 2;
+}
+if(mainAsteroid.position.x > viewportSize / 2){ 
+mainAsteroid.position.x = viewportSize / -2;
+}
+if(mainAsteroid.position.y < viewportSize / -2){ 
+mainAsteroid.position.y = viewportSize / 2;
+}
+if(mainAsteroid.position.y > viewportSize / 2){ 
+mainAsteroid.position.y = viewportSize / -2;
+}
+setHitboxXY(mainAsteroid.position.x, mainAsteroid.position.y);
+}
+//funciones de sonido de destruccion de acuerdo al asteroide destruido
+this.destroy = function(sound){
+scene.remove(mainAsteroid);
+var childAsteroids = [];
+if(scale == 5){
+var explosionSource = audioContext.createBufferSource();
+explosionSource.buffer = largeExplosionBuffer;
+explosionSource.connect(audioContext.destination);
+ if(sound)explosionSource.start(0);
+var seedDate = Date.now();
+for(var i = 0; i < 3; i ++){
+var a = new Asteroid(scene,3,that.Difficulty,viewportSize,seedDate, audioContext, largeExplosionBuffer, mediumExplosionBuffer, smallExplosionBuffer);
+a.fixedStart(that.position)
+childAsteroids.push(a);
+}}
+if(scale == 3){
+var explosionSource = audioContext.createBufferSource();
+explosionSource.buffer = mediumExplosionBuffer;
+explosionSource.connect(audioContext.destination);
+if(sound)explosionSource.start(0);
+var seedDate = Date.now();
+for(var i = 0; i < 3; i ++){
+var a = new Asteroid(scene,2,that.Difficulty,viewportSize,seedDate, audioContext, largeExplosionBuffer, mediumExplosionBuffer, smallExplosionBuffer);
+a.fixedStart(that.position)
+childAsteroids.push(a);
+}}
+if(scale == 2){
+var explosionSource = audioContext.createBufferSource();
+explosionSource.buffer = smallExplosionBuffer;
+explosionSource.connect(audioContext.destination);
+if(sound)explosionSource.start(0);
+}
+return childAsteroids;
+}
+}
+catch(err){
+alert(err);
+}	
 }
