@@ -13,18 +13,18 @@
     }
     </style>
 
-    <body>
-    <script src="three.min.js"></script>
-        <script>
-            var light=new THREE.PointLight(0xFFFFFF);
-            light.position.z=850;
-            light.castShadow=true;
-        </script>
-    <script src="Ship.js"></script>
-    <script src="Asteroid.js"></script>
-    <script src="Restart.js"></script>
-    <script>
-        
+ <body>
+ <script src="three.min.js"></script>
+ <script>
+ //luz situada en el centro
+ var light=new THREE.PointLight(0xFFFFFF);
+light.position.z=850;
+light.castShadow=true;
+</script>
+<script src="Ship.js"></script>
+<script src="Asteroid.js"></script>
+<script src="Restart.js"></script>
+<script>
 function main(shipSelected){
 try{
 //Se inicializan las teclas
@@ -34,8 +34,7 @@ var Backward_Down = false;
 var Left_Down = false;
 var Right_Down = false;
 var Y_Down = false;
- //whether or not the Space key was held as of last frame
-        var Space_Held = false;
+ var Space_Held = false;
  //Se inicializan las vidas así como las vidas restantes
  var Lives = 3;
  var LivesLeft = [];
@@ -105,7 +104,7 @@ star.position.z=300;
 scene.add(star);
 stars.push(star);
 }
-// inicializa el score
+// inicializa el score asi como se muestra en el texto
 var score=0;       
 var text = document.createElement('div');
 text.style.position = 'absolute';
@@ -121,215 +120,192 @@ document.body.appendChild(text);
 //inicializa las variables de audio
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 audioContext = new AudioContext();
-      //restart message
-        var newgame = new newGame(scene);
-        newgame.hide();
-
-        //set the number of lives player has
-        for(var i = 1; i <= Lives; i ++){
-            var lifePosition = new THREE.Vector3((viewportSize/-2) + (20 * i), (viewportSize /2) - 20, 750);
-            var lifeShip = new SpaceShip(scene, Date.now(), viewportSize, 4, audioContext, false,0xffffff,shipSelected);
-            lifeShip.setPosition(lifePosition);
-            LivesLeft.push(lifeShip);
-        }
-
-        //init spaceship and asteroids
-        switch(shipSelected){
-            case 1:
-                var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0x5858fa,1);
-                break;
-            case 2:
-                var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0xff0000,2);
-                break;
-            case 3:
-                var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0xfa58f4,3);
-                break;
-            case 4:
-                var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0xbf00ff,4);
-                break;
-            case 5:
-                var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0x58fad0,5);
-                break;
-            case 6:
-                var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0xf5da81,6);
-                break;
-                           }
-        spaceShip.setInvincible();
-        var Asteroids = [];
-        var seedDate = Date.now();
-        var numberShip=0;
-        
-        //setup asteroids
-        for(var i = 0; i < 10; i ++){
-            var a = new Asteroid(scene,5,2,viewportSize,seedDate, audioContext, null, null, null);
-            a.randomStart();
-            Asteroids.push(a);
-        }
-
-        
-        //keep track of bullets that are still "live"
-        var activeBullets = [];
-    var angleStar=0;
-        //main render loop
-        function render () {
-                
-            try{
-                for(var i=0; i<stars.length;i++){
-                    stars[i].position.x+=Math.sin(angleStar)*1;
-                    stars[i].position.y+=Math.cos(angleStar)*1;
-                }
-                angleStar+=0.01;
-               
-
-
-                var time = Date.now();
-                var invincible = spaceShip.getInvincible(time);
-                //shoot dem bullets
-                if(Space_Down && !newgame.shown()){
-
-                    var newBullet = spaceShip.shoot(time, Space_Held, shipSelected);
-                    //if a new bullet has been created add it to the bullet array
-                    if (newBullet != undefined){
-                        activeBullets.push(newBullet);
-                    }
-
-                    Space_Held = true;
-                }
-                else{
-                    Space_Held = false;
-                }
-                if(Left_Down && !newgame.shown()){
-                    spaceShip.rotateLeft(time);
-                }
-                if(Right_Down && !newgame.shown()){
-                    spaceShip.rotateRight(time);
-                }
-                if(Forward_Down && !newgame.shown()){
-                    spaceShip.goForward(time)
-                }
-                if(Y_Down && newgame.shown()){
-                    //START A NEW GAME
-                    spaceShip.setPosition(new THREE.Vector3(0,0,750));
-                    spaceShip.setRotation(new THREE.Vector3(0,0,0));
-                    spaceShip.setMomentum(new THREE.Vector3(0,0,0));
-                    spaceShip.setInvincible();
-                    invincible = true;
-                    score=0;
-                    text.innerHTML = "SCORE: "+score.toString();
-                    text.style.top = 50 + 'px';
-                    text.style.left = viewportSize/2 + 'px';
-                    document.body.appendChild(text);
-                    var asteroids = []
-                    for(var i = 0; i < 10; i ++){
-                        var a = new Asteroid(scene,5,2,viewportSize,time - 1, audioContext, null, null, null);
-                        a.randomStart();
-                        Asteroids.push(a);
-                    }
-                    Asteroids = Asteroids.concat(asteroids);
-
-                    //set the number of lives player has
-                    Lives = 3;
-                    for(var i = 1; i <= Lives; i ++){
-                        var lifePosition = new THREE.Vector3((viewportSize/-2) + (20 * i), (viewportSize /2) - 20, 750);
-                        var lifeShip = new SpaceShip(scene, Date.now(), viewportSize, 4);
-                        lifeShip.setPosition(lifePosition);
-                        LivesLeft.push(lifeShip);
-                    }
-
-                    newgame.hide();
-                }
-
-                //game logic goes here
-                if(!newgame.shown()) spaceShip.draw(time);
-                //check if spaceship is hit by asteroid
-                for(var i = 0; i < Asteroids.length; i ++){
-                    if(LivesLeft.length == 0){
-                        //died, remove everything first
-                        for(var j = 0; j < activeBullets.length; j++){
-                            var b = activeBullets.pop();
-                            b.destroy();
-                        }
-                        while(Asteroids.length != 0){
-                            var a = Asteroids.pop();
-                            var children = a.destroy(false);
-                            Asteroids = Asteroids.concat(children);
-                        }
-                        //hide ship
-                        spaceShip.setPosition(new THREE.Vector3(0,0,-1));
-                        //show newgame
-                        score=0;
-                        newgame.show();
-                        break;
-                    }
-                    Asteroids[i].draw(time);
-                    if(Asteroids[i].checkCollision(spaceShip.getVertices()) && !invincible && !newgame.shown()){
-                        var ship = LivesLeft.pop();
-                        ship.clear();
-                        spaceShip.setPosition(new THREE.Vector3(0,0,750));
-                        spaceShip.setRotation(new THREE.Vector3(0,0,0));
-                        spaceShip.setMomentum(new THREE.Vector3(0,0,0));
-                        spaceShip.setInvincible();
-                        invincible = true;
-                    } 
-                }
-                
-                //check all bullets
-                var tempBullets = [];
-                for(var i = 0; i < activeBullets.length; i ++){
-                    var bullet = activeBullets[i];
-
-                    //check to see if this is a "dead" bullet
-                    if(bullet.checkTime(time) && !newgame.shown()){
-                        //check for an asteroid intersection
-                        var destroy = false;
-                        var asteroidsToAdd = [];
-                        for(var j = 0; j < Asteroids.length; j ++){
-                            if(Asteroids[j].checkCollision([bullet.position()])){
-                                //alert("bullet hit asteroid");
-                                destroy = true;
-                                score++;
-                                text.innerHTML = "SCORE: "+score.toString();
-                                text.style.top = 50 + 'px';
-                                text.style.left = viewportSize/2 + 'px';
-                                document.body.appendChild(text);
-
-                                //remove the offending asteroid
-                                var childAsteroids = Asteroids[j].destroy(true);
-                                Asteroids.splice(j,1);
-                                j--;
-
-                                //add child asteroids if applicable
-                                if(childAsteroids != undefined){
-                                    for(var k = 0 ; k < childAsteroids.length; k ++){
-                                        asteroidsToAdd.push(childAsteroids[k]);
-                                    }
-                                }
-                                
-                                
-                            }
-                        }
-                        if(!destroy){
-                            bullet.move();
-                            tempBullets.push(bullet);
-                        }
-                        else bullet.destroy();
-                        Asteroids = Asteroids.concat(asteroidsToAdd);
-                    }
-                    else bullet.destroy();
-                }
-                activeBullets = tempBullets.slice(0);
-
+//restart message
+ var newgame = new newGame(scene);
+newgame.hide();
+for(var i = 1; i <= Lives; i ++){
+var lifePosition = new THREE.Vector3((viewportSize/-2) + (20 * i), (viewportSize /2) - 20, 750);
+var lifeShip = new SpaceShip(scene, Date.now(), viewportSize, 4, audioContext, false,0xffffff,shipSelected);
+lifeShip.setPosition(lifePosition);
+LivesLeft.push(lifeShip);
+}
+//incializar naves y asteroides
+switch(shipSelected){
+case 1:
+var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0x5858fa,1);
+break;
+case 2:
+var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0xff0000,2);
+break;
+case 3:
+var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0xfa58f4,3);
+break;
+case 4:
+var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0xbf00ff,4);
+break;
+case 5:
+var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0x58fad0,5);
+break;
+case 6:
+var spaceShip = new SpaceShip(scene, Date.now(), viewportSize, 2.5, audioContext, true,0xf5da81,6);
+break;
+}
+spaceShip.setInvincible();
+var Asteroids = [];
+ //tomar el dato del tiempo para hacer una diferencia del tiempo que fue destruido el asteroide para volverlo a crear
+var seedDate = Date.now();
+var numberShip=0;
+//poner asteroides
+for(var i = 0; i < 10; i ++){
+var a = new Asteroid(scene,5,2,viewportSize,seedDate, audioContext, null, null, null);
+a.randomStart();
+Asteroids.push(a);
+}
+//balas que han sido disparadas pero no impactadas
+var activeBullets = [];
+var angleStar=0;
+//principal funcion de renderizado
+function render () {
+try{
+//ilusion de movimiento de las estrellas
+for(var i=0; i<stars.length;i++){
+stars[i].position.x+=Math.sin(angleStar)*1;
+stars[i].position.y+=Math.cos(angleStar)*1;
+}
+angleStar+=0.01;
+var time = Date.now();
+var invincible = spaceShip.getInvincible(time);
+if(Space_Down && !newgame.shown()){
+var newBullet = spaceShip.shoot(time, Space_Held, shipSelected);
+//si una nueva bala a sido creada, añadirla al vector
+if (newBullet != undefined){
+activeBullets.push(newBullet);
+}
+Space_Held = true;
+}
+else{
+Space_Held = false;
+}
+    //funciones de presion de las teclas
+if(Left_Down && !newgame.shown()){
+ spaceShip.rotateLeft(time);
+}
+if(Right_Down && !newgame.shown()){
+spaceShip.rotateRight(time);
+}
+if(Forward_Down && !newgame.shown()){
+spaceShip.goForward(time)
+ }
+    //funcion de reincio
+ if(Y_Down && newgame.shown()){
+ spaceShip.setPosition(new THREE.Vector3(0,0,750));
+spaceShip.setRotation(new THREE.Vector3(0,0,0));
+spaceShip.setMomentum(new THREE.Vector3(0,0,0));
+spaceShip.setInvincible();
+ invincible = true;
+ score=0;
+ text.innerHTML = "SCORE: "+score.toString();
+ text.style.top = 50 + 'px';
+text.style.left = viewportSize/2 + 'px';
+document.body.appendChild(text);
+  var asteroids = []
+ for(var i = 0; i < 10; i ++){
+var a = new Asteroid(scene,5,2,viewportSize,time - 1, audioContext, null, null, null);
+a.randomStart();
+Asteroids.push(a);
+ }
+Asteroids = Asteroids.concat(asteroids);
+//creacion y actualizacion de las vidas del jugador
+Lives = 3;
+for(var i = 1; i <= Lives; i ++){
+var lifePosition = new THREE.Vector3((viewportSize/-2) + (20 * i), (viewportSize /2) - 20, 750);
+var lifeShip = new SpaceShip(scene, Date.now(), viewportSize, 4);
+lifeShip.setPosition(lifePosition);
+LivesLeft.push(lifeShip);
+ }
+newgame.hide();
+ }
+if(!newgame.shown()) spaceShip.draw(time);
+ //checa si la nave golpea un asteroide
+for(var i = 0; i < Asteroids.length; i ++){
+ if(LivesLeft.length == 0){
+ //cuando el jugador muere borra todo
+for(var j = 0; j < activeBullets.length; j++){
+ var b = activeBullets.pop();
+b.destroy();
+}
+while(Asteroids.length != 0){
+var a = Asteroids.pop();
+var children = a.destroy(false);
+ Asteroids = Asteroids.concat(children);
+}
+//oculta la nave y muestra juego nuevo
+spaceShip.setPosition(new THREE.Vector3(0,0,-1));
+score=0;
+newgame.show();
+break;
+}
+//obtiene si hay colision con la nave
+Asteroids[i].draw(time);
+if(Asteroids[i].checkCollision(spaceShip.getVertices()) && !invincible && !newgame.shown()){
+var ship = LivesLeft.pop();
+ship.clear();
+spaceShip.setPosition(new THREE.Vector3(0,0,750));
+spaceShip.setRotation(new THREE.Vector3(0,0,0));
+spaceShip.setMomentum(new THREE.Vector3(0,0,0));
+spaceShip.setInvincible();
+invincible = true;
+} 
+}
+//checa las balas creadas
+var tempBullets = [];
+for(var i = 0; i < activeBullets.length; i ++){
+var bullet = activeBullets[i];
+//checa si una bala fue destruida
+if(bullet.checkTime(time) && !newgame.shown()){
+//checa una interseccion con la bala y el asteroide
+var destroy = false;
+var asteroidsToAdd = [];
+for(var j = 0; j < Asteroids.length; j ++){
+if(Asteroids[j].checkCollision([bullet.position()])){
+//nos indica una bandera de que a sido destruido
+destroy = true;
+score++;
+text.innerHTML = "SCORE: "+score.toString();
+text.style.top = 50 + 'px';
+text.style.left = viewportSize/2 + 'px';
+document.body.appendChild(text);
+//remover el asteroide atacado y crear asteroides bebes
+var childAsteroids = Asteroids[j].destroy(true);
+Asteroids.splice(j,1);
+j--;
+//agregar asteroides bebes si cumple el caso
+if(childAsteroids != undefined){
+for(var k = 0 ; k < childAsteroids.length; k ++){
+asteroidsToAdd.push(childAsteroids[k]);
+}
+}
+}
+}
+if(!destroy){
+bullet.move();
+tempBullets.push(bullet);
+}
+else bullet.destroy();
+Asteroids = Asteroids.concat(asteroidsToAdd);
+}
+else bullet.destroy();
+}
+activeBullets = tempBullets.slice(0);
+}
+catch(Error){
+ throw(Error);
             }
-            catch(Error){
-                throw(Error);
-            }
-            
-
-            requestAnimationFrame(render);
-            renderer.render(scene, camera);
-        }
+requestAnimationFrame(render);
+renderer.render(scene, camera);
+}
         render();
-
+//evento de presionado de teclas
         function onDocumentKeyDown( event ) {
 
             switch( event.keyCode ) {
@@ -357,7 +333,7 @@ audioContext = new AudioContext();
                     break;
             }
         }
-
+//evento de soltado de teclas
         function onDocumentKeyUp( event ) {
             switch( event.keyCode ) {
                 case 32: //' '
@@ -380,12 +356,8 @@ audioContext = new AudioContext();
                     break;
             }
         }
-
-
-        //listeners for events
-       
-        document.addEventListener( 'keydown', onDocumentKeyDown, false );
-        document.addEventListener( 'keyup', onDocumentKeyUp, false );
+document.addEventListener( 'keydown', onDocumentKeyDown, false );
+ document.addEventListener( 'keyup', onDocumentKeyUp, false );
 
     }
     catch(Error){
@@ -393,7 +365,7 @@ audioContext = new AudioContext();
     }
     }
 
-     // function for waiting the user to select
+     // evento de creacion de nave del jugador
      function waitForShip(){
          function onDocumentKeyDown( event ) {
 
